@@ -10,42 +10,34 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Light background for contrast */
         }
 
         .header {
             text-align: center;
-            padding: 20px;
         }
 
         .dropdown {
             display: none; 
-            opacity: 0;
             margin-top: 10px;
             background-color: #000000;
             border: 1px solid #000000;
             padding: 1px;
             border-radius: 10px;
-            position: absolute; 
-            width: 100%; 
-            left: 0; 
-            transition: opacity 0.3s ease; /* Smooth transition */
-        }
-
-        .dropdown.show {
-            display: block;
-            opacity: 1; /* Show with opacity */
+            position: absolute; /* For dropdown positioning */
+            width: 100%; /* Full width dropdown */
+            left: 0; /* Align with the button */
         }
 
         .dropdown-button {
             background-color: #000000; 
             color: white;
-            padding: 15px;
+            padding: 10px 20px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-size: 15px;    
-            width: 100%; 
+            width: 100%; /* Full width on mobile */
+            padding: 15px; /* Increase padding for easier touch */
         }
 
         .dropdown-button:hover {
@@ -60,34 +52,31 @@
             cursor: pointer;
             color: #ffffff;
             margin: 5px;
-            transition: background-color 0.3s ease; /* Smooth transition */
         }
 
         .job-title:hover {
             color: #cb4335;
-            text-decoration: underline;
-            background-color: rgba(203, 67, 53, 0.1); /* Light background on hover */
         }
 
         @media (max-width: 600px) {
             body {
-                font-size: 14px; 
+                font-size: 14px; /* Adjust font size for smaller screens */
             }
 
             .header h1 {
-                font-size: 24px; 
+                font-size: 24px; /* Make header smaller */
             }
 
             .dropdown-button h1 {
-                font-size: 16px; 
+                font-size: 16px; /* Smaller button text */
             }
 
             .dropdown {
-                padding: 5px; 
+                padding: 5px; /* Reduce padding */
             }
 
             .job-title {
-                font-size: 16px; 
+                font-size: 16px; /* Smaller job title font */
             }
         }
     </style>
@@ -100,19 +89,19 @@
 
             // Close the currently active dropdown if it is not the one being clicked
             if (activeDropdown === dropdownId) {
-                dropdown.classList.remove('show');
+                dropdown.style.display = 'none';
                 activeDropdown = null;
                 button.classList.remove('active');
             } else {
                 // Close the currently active dropdown
                 if (activeDropdown) {
-                    document.getElementById(activeDropdown).classList.remove('show');
+                    document.getElementById(activeDropdown).style.display = 'none';
                     const activeButton = Array.from(buttons).find(btn => btn.classList.contains('active'));
                     if (activeButton) activeButton.classList.remove('active');
                 }
 
                 // Open the new dropdown
-                dropdown.classList.add('show');
+                dropdown.style.display = 'block';
                 activeDropdown = dropdownId;
                 button.classList.add('active');
             }
@@ -125,6 +114,8 @@
     </script>
 </head>
 <body>
+    <h1>My Resume</h1>
+
     <div class="header">
         <h1>Rafael Gallardo Santiago</h1>
     </div>
@@ -147,28 +138,28 @@
 
     <section class="skills">
         <div class="button-container"> 
-            <button class="dropdown-button" onclick="toggleDropdown('skillDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('skillDropdown', this)">
                 <h1>Core Skills</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('experienceDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('experienceDropdown', this)">
                 <h1>Experience</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('TechnicalSkillsDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('TechnicalSkillsDropdown', this)">
                 <h1>Technical Skills</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('educationDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('educationDropdown', this)">
                 <h1>Education</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('certificationsDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('certificationsDropdown', this)">
                 <h1>Certifications</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('trainingDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('trainingDropdown', this)">
                 <h1>Training</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('languagesDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('languagesDropdown', this)">
                 <h1>Languages</h1>
             </button>
-            <button class="dropdown-button" onclick="toggleDropdown('contactDropdown', this)" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-button" onclick="toggleDropdown('contactDropdown', this)">
                 <h1>Contact</h1>
             </button>
         </div>
@@ -255,9 +246,9 @@
         
         <div id="educationDropdown" class="dropdown">
             <ul>
-                <li><strong>Ingeniería en Computación y Sistemas</strong></li>
-                <li>Facultad de Ingeniería, UNAM, CDMX, Mexico</li>
-                <li>1996-2001</li>
+                <p>Ingeniería en Computación y Sistemas</p>
+                <p>Facultad de Ingeniería, UNAM, CDMX, Mexico</p>
+                <p>1996-2001</p>
             </ul>
         </div>
 
@@ -302,8 +293,8 @@
 
         <div id="contactDropdown" class="dropdown">
             <ul>
-                <li><strong>Whatsapp</strong>: your-whatsapp-number</li>
-                <li><strong>Email</strong>: your-email@example.com</li>
+                <li><strong>Whatsapp</strong>: </li>
+                <li><strong>Email</strong>: </li>
             </ul>
         </div>
     </section>
