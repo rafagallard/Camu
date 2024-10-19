@@ -1,85 +1,101 @@
+/* Estilo general del cuerpo */
 body { 
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #000000;
-    margin: 0;                  /* configurar el margen a 0 para que se puedan observar los espacios */
-    padding: 50px;
-    font-size: 22px;            
-    line-height: 2.0;           /* espacio ente lineas */
+    font-family: 'Segoe UI', sans-serif; /* Define la fuente del texto */
+    background-color: #000000; /* Color de fondo negro */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 50px; /* Espaciado interno del cuerpo */
+    font-size: 22px; /* Tamaño de fuente base */
+    line-height: 2.0; /* Espaciado entre líneas */
 }
 
+/* Estilo para el encabezado principal */
 h1 {
-    color: #FFFFFF;
-    font-size: 33px;
-    line-height: 2.0; 
+    color: #FFFFFF; /* Color del texto del encabezado principal */
+    font-size: 33px; /* Tamaño del encabezado */
+    line-height: 2.0; /* Espaciado entre líneas del encabezado */
 }
 
+/* Estilo para subtítulos */
 h2 {
-    color: #FFFFFF;
-    font-size: 30px; 
+    color: #FFFFFF; /* Color del texto de los subtítulos */
+    font-size: 30px; /* Tamaño del subtítulo */
     line-height: 2.0; 
 }
 
+/* Estilo para títulos de trabajos */
 h3 {
-    color: #FFFFFF;
+    color: #FFFFFF; /* Color del texto para títulos de trabajos */
     font-size: 22px; 
     line-height: 2.0; 
 }
 
+/* Estilo para párrafos */
 p {
-    color: #FFFFFF;
+    color: #FFFFFF; /* Color del texto para párrafos */
     font-size: 22px; 
     line-height: 2.0; 
 }
 
-td, ul, li {  /* Combine similar styles */
-    color: #FFFFFF;
+/* Estilo para tablas, listas y elementos de lista */
+td, ul, li { 
+    color: #FFFFFF; /* Color del texto */
     line-height: 2.0; 
     font-size: 22px; 
 }
 
+/* Estilo personalizado para un color específico */
 camu {
-    color: #f39c12;
+    color: #f39c12; /* Color personalizado */
 }
 
+/* Estilo personalizado para otro color específico */
 dan {
-    color: #2ecc71;
+    color: #2ecc71; /* Otro color personalizado */
 }
 
+/* Contenedor para botones */
 .button-container {
-    display: flex;                /* flexbox para alinear elementos */
-    justify-content: center;      /* espacio entre lo botones */
-    align-items: center;          /* alineación vertical */
-    margin-bottom: 20px;         /* expacio entre los botones */
-    width: 100%;                 /* ancho del contenedor */
+    display: flex; /* Usa flexbox para alinear botones */
+    flex-wrap: wrap; /* Permite que los botones se ajusten en pantallas pequeñas */
+    justify-content: center; /* Centra botones horizontalmente */
+    align-items: center; /* Centra botones verticalmente */
+    margin-bottom: 20px; /* Espaciado inferior */
+    width: 100%; /* Ancho del contenedor */
 }
 
+/* Estilo para botones desplegables */
 .dropdown-button {
-    background-color: #000000; 
-    color: white;
-    padding: 10px 20px;          /* ajuste de marcos */
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: center;           /* alineación dle texto */
-    margin: 0 10px;              /*espacio entre botones */
+    background-color: #000000; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 15px 20px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+    font-size: 15px; /* Tamaño del texto del botón */
+    text-align: center; /* Centrar texto dentro del botón */
+    margin: 5px; /* Espaciado entre botones */
+    flex: 1 1 150px; /* Permitir que el botón crezca y se reduzca con un ancho mínimo */
 }
 
+/* Estilo para el botón al pasar el ratón */
 .dropdown-button:hover {
-    background-color: #2ecc71;    /* cambio de color del boton */
+    background-color: #2ecc71; /* Cambio de color al pasar el ratón */
 }
 
+/* Estilo para secciones de habilidades y experiencia */
 .skills, .experience {
-    text-align: center; /* Centrado de titulos */
+    text-align: center; /* Centra texto en secciones de habilidades y experiencia */
 }
 
+/* Estilo para listas dentro de los dropdowns */
 .dropdown ul {
-    text-align: justify; /* justificado de texto */
-    padding-left: 0; /* quita el alineado por defecto */
-    list-style-position: inside; /* Adjust the list marker position */
+    text-align: justify; /* Justificar texto en listas */
+    padding-left: 0; /* Quitar alineado por defecto */
+    list-style-position: inside; /* Ajustar la posición del marcador de lista */
 }
 
+/* Estilo para los dropdowns */
 .dropdown {
-    margin: 0 auto; /* centra el menu desplegable */
-    width: fit-content; /* ajusta el menu desplegable */
+    margin: 0 auto; /* Centrar el menú desplegable */
+    width: fit-content; /* Ajustar el ancho del menú desplegable */
 }
