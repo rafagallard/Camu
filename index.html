@@ -5,162 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resume</title>
     <link rel="stylesheet" href="style2.css"> <!-- Enlace a la hoja de estilo -->
-    <script>
-        // Cerrar detalles de trabajo al hacer clic fuera de ellos
-        document.addEventListener('click', (event) => {
-            const jobDetails = document.querySelectorAll('.job-details');
-            if (!event.target.closest('.job-title')) {
-                jobDetails.forEach(details => details.classList.remove('active'));
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Fondo claro */
+        }
+
+        /* Estilo del contenedor */
+        .container {
+            max-width: 800px; /* Ancho máximo del contenido */
+            margin: 20px auto; /* Centrar el contenido */
+            padding: 20px;
+            background: #fff; /* Fondo blanco */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            margin: 0;
+        }
+
+        /* Estilos para las secciones */
+        section {
+            margin-bottom: 20px; /* Espacio entre secciones */
+            padding: 10px; /* Espacio interno */
+            background: #f9f9f9; /* Fondo de sección */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+
+        /* Estilos de lista */
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Estilos de pie de página */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            margin-top: 20px; /* Espacio superior */
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px; /* Reducir padding en dispositivos móviles */
             }
-        });
 
-        // Agregar efecto de scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.scroll-section');
+            h1 {
+                font-size: 24px; /* Ajustar tamaño de fuente para títulos */
+            }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Añadir la clase visible
-                        observer.unobserve(entry.target); // Dejar de observar
-                    }
-                });
-            });
+            h2 {
+                font-size: 20px; /* Ajustar tamaño de fuente para subtítulos */
+            }
+        }
 
-            sections.forEach(section => {
-                observer.observe(section); // Observar cada sección
-            });
-        });
-    </script>
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px; /* Ajustar más el tamaño de fuente para títulos */
+            }
+
+            h2 {
+                font-size: 18px; /* Ajustar más el tamaño de fuente para subtítulos */
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Rafael Gallardo Santiago</h1> <!-- Nombre del usuario -->
-    </header>
 
-    <section class="summary scroll-section">
-        <h2>Professional Summary</h2> <!-- Resumen profesional -->
-        <p>Experienced Product Manager, 
-        Scrum Master and 
-        Project Manager with a strong background 
-        in digital project management, IT automation, and 
-        cross-functional leadership across various industries, including Government, Logistics, 
-        Retail, Manufacturing, and Healthcare. Proven expertise in managing complex integrations, 
-        aligning product development with business goals, and fostering vendor collaborations. 
-        Adept at driving strategic initiatives, leading Agile teams, and delivering impactful solutions. 
-        Skilled in data management, risk mitigation, and enhancing user engagement through innovative 
-        product solutions. Extensive experience in platform services, project planning, budgeting, 
-        milestone setting, and communication management across global teams. Focused on delivering 
-        high-impact solutions with a customer-first approach in emerging markets.</p>
-    </section>
+    <div class="container">
+        <header>
+            <h1>Rafael Gallardo Santiago</h1>
+            <p>Experienced Product Manager with a strong background in digital project management.</p>
+        </header>
 
-    <section class="skills scroll-section">
-        <h2>Core Skills</h2>
-        <ul>
-            <li>MES Implementation</li>
-            <li>Project & Portfolio Management</li>
-            <li>Change Management</li>
-            <li>Stakeholder Management & Communication</li>
-            <li>Risk Management & Security Compliance</li>
-            <li>Agile Methodologies: Scrum, SAFe, Kanban, Agile SDLC</li>
-            <li>Waterfall Methodology</li>
-            <li>Team Leadership & Collaboration</li>
-            <li>Cross-Functional Team Leadership</li>
-            <li>Fluent in English and Spanish</li>
-        </ul>
-    </section>
+        <section>
+            <h2>Professional Summary</h2>
+            <p>Experienced Product Manager, Scrum Master, and Project Manager with a strong background in digital project management.</p>
+        </section>
 
-    <section class="achievements scroll-section">
-        <h2>Relevant Achievements</h2> <!-- Nuevas logros relevantes -->
-        <ul>
-            <li>Successfully led a multi-site MES Implementation project across three plants, reducing manual interventions by 15%.</li>
-            <li>Guided cross-functional teams through change management processes, increasing adoption rates by 20%.</li>
-            <li>Managed a portfolio of projects, including a critical ERP integration, achieving seamless rollouts and positive stakeholder feedback.</li>
-        </ul>
-    </section>
+        <section>
+            <h2>Relevant Achievements</h2>
+            <ul>
+                <li>Successfully led a multi-site MES Implementation project across three plants, reducing manual interventions by 15%.</li>
+                <li>Guided cross-functional teams through change management processes, increasing adoption rates by 20%.</li>
+                <li>Managed a portfolio of projects, including a critical ERP integration, achieving seamless rollouts and positive stakeholder feedback.</li>
+            </ul>
+        </section>
 
-    <section class="experience scroll-section">
-        <h2>Experience</h2>
+        <section>
+            <h2>EDUCATION</h2>
+            <p>Ingeniería en Computación y Sistemas, Facultad de Ingeniería, UNAM, CDMX, México, 1996–2001</p>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Product Owner<br>Baxter, CDMX, México</h3>
-            <p>October 2022 – June 2024</p>
-            <div id="job1Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Product & Integration Management: Spearheaded digital survey portal projects, enhancing customer engagement and aligning product strategy with customer needs.</li>
-                    <li>Data Optimization: Managed data cleaning, reducing costs by 10% and optimizing workflows for AP automation and platform services.</li>
-                    <li>Risk Management & Quality Assurance: Developed a Recovery Disaster Plan (RDP) and led security assessments to ensure compliance and system resilience.</li>
-                    <li>Vendor Management & Collaboration: Managed relationships with SaaS vendors, supporting commercial teams and integrating technology solutions to improve customer experience.</li>
-                    <li>Leadership & Delivery: Defined KPIs, led backlog management, and ensured seamless execution of platform-related projects.</li>
-                </ul>
-            </div>
-        </div>
+        <section>
+            <h2>CERTIFICATIONS</h2>
+            <ul>
+                <li>TenSteps Project Manager Certification (PMP)</li>
+                <li>Product Owner Certification</li>
+                <li>ScrumMaster Certification</li>
+                <li>SAFe for Teams Certification</li>
+                <li>ITIL Fundamentals V4.0</li>
+            </ul>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Project Manager/Scrum Master<br>Avattar Consulting, Monterrey, N.L., México</h3>
-            <p>September 2019 – June 2022</p>
-            <div id="job2Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Led MES and ITSM implementations, aligning with agile methodologies and driving key milestones.</li>
-                    <li>Platform Services Development: Led ITSM y automatización de proyectos que se alinearon con la hoja de ruta del producto, ofreciendo soluciones que mejoraron los resultados comerciales y la satisfacción del cliente.</li>
-                    <li>Portfolio & Process Management: Managed a portfolio of supply chain projects, executing strategic initiatives and achieving milestones on time.</li>
-                    <li>Backlog & Roadmap Prioritization: Prioritized product backlogs based on business impact and customer needs, delivering results aligned with company objectives.</li>
-                    <li>Agile Leadership: Promoted continuous improvement through Agile practices and led cross-functional teams in product execution.</li>
-                    <li>Infrastructure & Operations Oversight: Supervised upgrades to support digital transformation initiatives and platform enhancements.</li>
-                </ul>
-            </div>
-        </div>
+        <section>
+            <h2>TRAINING</h2>
+            <ul>
+                <li>Interpersonal Communication: Communicating Assertively</li>
+                <li>Leading Teams with Emotional Intelligence</li>
+                <li>Operations Excellence – Assets and Technology</li>
+                <li>Project Management Center Course 1: Project Team Training</li>
+                <li>Design Thinking</li>
+                <li>DevOps</li>
+                <li>Tech Room by Latbc: Beyond BI & Analytics</li>
+            </ul>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Project Manager<br>DHL/Latbc Consulting, CDMX, México</h3>
-            <p>December 2017 – June 2019</p>
-            <div id="job3Details" class="job-details">
-                <ul class="experience-list">
-                    <li>HR Technology Transition: Directed the transition to new HR platforms, improving operational efficiency and ensuring seamless system integration.</li>
-                    <li>Project Portfolio Management: Managed a range of projects that aligned with company strategy, optimizing resources and improving platform stability.</li>
-                    <li>Drove change management efforts and facilitated collaboration between diverse global teams.</li>
-                    <li>Achieved a 10% cost reduction through effective risk mitigation and stakeholder communication.</li>
-                </ul>
-            </div>
-        </div>
+        <section>
+            <h2>TECHNICAL SKILLS</h2>
+            <ul>
+                <li>ERP Systems: PeopleSoft 8.8/9.1, Oracle E-Business Suite HCM, Workday HCM, SAP Manufacturing Execution and AVEVA (formerly Wonderware) MES</li>
+                <li>Project Managing Tools: MS Project, MS Azure DevOps, Rally, Jira, Confluence, Mural, Trello, Monday.com</li>
+                <li>Programming Languages: Java, SQL, PeopleCode</li>
+                <li>Tools: MS Project, Jira, Asana, SharePoint, Test Director</li>
+                <li>Methodologies: PMI, Agile-Scrum, SDLC</li>
+                <li>Reporting Tools: nVision, SQR, PS Query</li>
+                <li>Operating Systems: Windows, Linux, Mac OS</li>
+            </ul>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Project Manager<br>Soletanche Bachy, Paris, France</h3>
-            <p>September 2017 – November 2019</p>
-            <div id="job4Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Financial Systems Integration: Led the integration of financial systems, streamlining AP processes to enhance platform performance and compliance with global standards.</li>
-                    <li>Automation & Process Optimization: Implemented OCR soluciones y automatizó flujos de trabajo, mejorando la eficiencia operativa para servicios basados en plataformas.</li>
-                </ul>
-            </div>
-        </div>
+        <section>
+            <h2>LANGUAGES</h2>
+            <ul>
+                <li>English: C1</li>
+                <li>French: B1</li>
+            </ul>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Scrum Master/Project Manager<br>SUNAT, Lima, Peru</h3>
-            <p>July 2016 – July 2017</p>
-            <div id="job5Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Agile Product Development: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
-                    <li>Compliance & Process Integration: Ensured that platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
-                </ul>
-            </div>
-        </div>
+        <footer>
+            <p>&copy; 2024 Rafael Gallardo Santiago</p>
+        </footer>
+    </div>
 
-        <div class="job">
-            <h3 class="job-title">Consultant, Acting Manager, Project Manager, Functional & Technical Lead<br>Various Clients: Siemens, Deloitte, HP, etc., CDMX, México</h3>
-            <p>July 2015 – June 2016</p>
-            <div id="job6Details" class="job-details">
-                <ul class="experience-list">
-                    <li>ERP Systems Migration: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Puedes agregar más trabajos aquí -->
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Rafael Gallardo Santiago</p>
-    </footer>
 </body>
 </html>
