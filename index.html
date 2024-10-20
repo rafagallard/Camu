@@ -4,296 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resume</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css"> <!-- Enlace a la hoja de estilo -->
     <script>
-        let activeDropdown = null;
-
-        // Función para alternar el menú desplegable
-        function toggleDropdown(dropdownId, button) {
-            const dropdown = document.getElementById(dropdownId);
-            const buttons = document.querySelectorAll('.dropdown-button');
-
-            // Cierra el menú desplegable activo si no es el que se está haciendo clic
-            if (activeDropdown === dropdownId) {
-                dropdown.style.display = 'none';
-                activeDropdown = null;
-                button.classList.remove('active');
-            } else {
-                // Cierra el menú desplegable activo actualmente
-                if (activeDropdown) {
-                    document.getElementById(activeDropdown).style.display = 'none';
-                    const activeButton = Array.from(buttons).find(btn => btn.classList.contains('active'));
-                    if (activeButton) activeButton.classList.remove('active');
-                }
-
-                // Abre el nuevo menú desplegable
-                dropdown.style.display = 'block';
-                activeDropdown = dropdownId;
-                button.classList.add('active');
-            }
-        }
-
-        // Función para alternar los detalles del trabajo
-        function toggleJobDetails(jobId) {
-            const jobDetails = document.getElementById(jobId);
-            const currentlyActive = document.querySelector('.job-details.active');
-
-            // Cierra el detalle del trabajo activo si no es el que se está haciendo clic
-            if (currentlyActive && currentlyActive.id !== jobId) {
-                currentlyActive.style.display = 'none';
-                currentlyActive.classList.remove('active');
-            }
-
-            // Alterna el detalle del trabajo clicado
-            jobDetails.style.display = jobDetails.style.display === 'block' ? 'none' : 'block';
-            jobDetails.classList.toggle('active');
-        }
-
-        // Cierra el menú desplegable al hacer clic fuera de él
+        // Cerrar detalles de trabajo al hacer clic fuera de ellos
         document.addEventListener('click', (event) => {
-            const dropdowns = document.querySelectorAll('.dropdown');
-            const buttons = document.querySelectorAll('.dropdown-button');
-
-            // Si se hace clic fuera de los botones y los menús desplegables, cierra cualquier menú abierto
-            if (!event.target.closest('.dropdown-button') && !event.target.closest('.dropdown')) {
-                dropdowns.forEach(dropdown => dropdown.style.display = 'none');
-                buttons.forEach(button => button.classList.remove('active'));
-                activeDropdown = null;
+            const jobDetails = document.querySelectorAll('.job-details');
+            if (!event.target.closest('.job-title')) {
+                jobDetails.forEach(details => details.classList.remove('active'));
             }
         });
+
+        // Agregar efecto de scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.scroll-section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Añadir la clase visible
+                        observer.unobserve(entry.target); // Dejar de observar
+                    }
+                });
+            });
+
+            sections.forEach(section => {
+                observer.observe(section); // Observar cada sección
+            });
+        });
     </script>
-    <style>
-        /* Estilos para botones responsivos */
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .dropdown-button {
-            flex: 1 1 calc(25% - 20px);
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            background-color: #000000;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .dropdown-button:hover {
-            background-color: #28b463;
-        }
-
-        /* Estilos para el menú desplegable */
-        .dropdown {
-            display: none;
-            background-color: black;
-            border: 1px solid black; /* Cambiado a negro */
-            border-radius: 5px;
-            padding: 10px;
-            position: absolute;
-            z-index: 1000;
-        }
-
-        /* Centrar los elementos de la lista */
-        .dropdown ul {
-            list-style-type: none; /* Eliminar viñetas */
-            padding: 0;
-            margin: 0;
-            text-align: center; /* Centrar los elementos de la lista */
-        }
-
-        .dropdown li {
-            padding: 5px 0; /* Agregar algo de espacio entre elementos */
-        }
-    </style>
 </head>
 <body>
-    <h1>My Resume</h1>
+    <header>
+        <h1>Rafael Gallardo Santiago</h1> <!-- Nombre del usuario -->
+    </header>
 
-    <div class="header">
-        <h1>Rafael Gallardo Santiago</h1>
-    </div>
-
-    <section class="summary">
-        <h2>Professional Summary</h2>
-        <p>Experience as a <camu>Product Manager</camu>, 
-        <camu>Scrum Master</camu> and 
-        <camu>Project Manager</camu> with a strong track record 
-        in digital project management, <camu>IT automation</camu> and 
+    <section class="summary scroll-section">
+        <h2>Professional Summary</h2> <!-- Resumen profesional -->
+        <p>Experienced Product Manager, 
+        Scrum Master and 
+        Project Manager with a strong background 
+        in digital project management, IT automation, and 
         cross-functional leadership across various industries, including Government, Logistics, 
-        Retail, Manufacturing, and Health. Proven experience in managing complex integrations, 
-        aligning product development with business objectives, and fostering collaborations with vendors. 
-        Skilled at driving strategic initiatives, leading agile teams, and delivering impactful solutions. 
-        Experience in data management, risk mitigation, and enhancing user engagement through innovative product solutions. 
-        Extensive experience in platform services, project planning, budgeting, 
+        Retail, Manufacturing, and Healthcare. Proven expertise in managing complex integrations, 
+        aligning product development with business goals, and fostering vendor collaborations. 
+        Adept at driving strategic initiatives, leading Agile teams, and delivering impactful solutions. 
+        Skilled in data management, risk mitigation, and enhancing user engagement through innovative 
+        product solutions. Extensive experience in platform services, project planning, budgeting, 
         milestone setting, and communication management across global teams. Focused on delivering 
-        high-impact solutions with a customer-centric approach in emerging markets.</p>
+        high-impact solutions with a customer-first approach in emerging markets.</p>
     </section>
 
-    <section class="skills">
-        <div class="button-container"> 
-            <button class="dropdown-button" onclick="toggleDropdown('skillDropdown', this)">
-                <h1>Core Skills</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('experienceDropdown', this)">
-                <h1>Experience</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('TechnicalSkillsDropdown', this)">
-                <h1>Technical Skills</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('educationDropdown', this)">
-                <h1>Education</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('certificationsDropdown', this)">
-                <h1>Certifications</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('trainingDropdown', this)">
-                <h1>Training</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('languagesDropdown', this)">
-                <h1>Languages</h1>
-            </button>
-            <button class="dropdown-button" onclick="toggleDropdown('contactDropdown', this)">
-                <h1>Contact</h1>
-            </button>
-        </div>
-        
-        <div id="skillDropdown" class="dropdown">
-            <ul>
-                <li>Implementation of MES</li>
-                <li>Project and Portfolio Management</li>
-                <li>Change Management</li>
-                <li>Stakeholder and Communication Management</li>
-                <li>Risk Management and Security Compliance</li>
-                <li>Agile Methodologies: Scrum, SAFe, Kanban, Agile SDLC</li>
-                <li>Waterfall Methodology</li>
-                <li>Leadership and Team Collaboration</li>
-                <li>Cross-Functional Team Leadership</li>
-                <li>Fluency in English and Spanish</li>
-            </ul>
-        </div>
-
-        <div id="experienceDropdown" class="dropdown">
-            <div class="job">
-                <h3 class="job-title" onclick="toggleJobDetails('job1Details')">Baxter, CDMX — Product Owner</h3>
-                <p>Oct 2022 - Jun 2024</p>
-                <div id="job1Details" class="job-details" style="display: none;">
-                    <ul class="experience-list">
-                        <li><camu>Product Management and Integration</camu>: Led digital survey portal projects, improving customer engagement and aligning product strategy with customer needs.</li>
-                        <li><camu>Data Optimization</camu>: Managed data cleansing, reducing costs by 10% and optimizing workflows for AP automation and platform services.</li>
-                        <li><camu>Risk Management and Quality Assurance</camu>: Developed a Disaster Recovery Plan (DRP) and led security assessments to ensure compliance and system resilience.</li>
-                        <li><camu>Vendor Management and Collaboration</camu>: Managed relationships with SaaS vendors, supporting business teams and integrating technology solutions to enhance customer experience.</li>
-                        <li><camu>Leadership and Delivery</camu>: Defined KPIs, led backlog management, and ensured smooth execution of platform-related projects.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job">
-                <h3 class="job-title" onclick="toggleJobDetails('job2Details')">Avattar Consulting, Monterrey, N.L. — Project Manager/Product Owner/Scrum Master</h3>
-                <p>September 2019 – June 2022</p>
-                <div id="job2Details" class="job-details" style="display: none;">
-                    <ul class="experience-list">
-                        <li><camu>Lead MES and ITSM Implementations</camu>: Coordinated ERP system integration projects to optimize manufacturing and human resources processes.</li>
-                        <li><camu>Process Improvement</camu>: Increased product delivery efficiency by managing agile processes, facilitating the adoption of new technologies, and promoting continuous improvement.</li>
-                        <li><camu>Change Management and Compliance</camu>: Ensured compliance with regulations in projects, aligning developments with regulatory standards and best practices in the industry.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job">
-                <h3 class="job-title" onclick="toggleJobDetails('job3Details')">Soletanche Bachy, Paris, France — Project Manager</h3>
-                <p>September 2017 – November 2017</p>
-                <div id="job3Details" class="job-details" style="display: none;">
-                    <ul class="experience-list">
-                        <li><camu>Financial Systems Integration</camu>: Led financial systems integration, optimizing accounts payable processes to enhance platform performance and compliance with global standards.</li>
-                        <li><camu>Automation and Process Optimization</camu>: Implemented OCR solutions and workflow automation, improving operational efficiency of platform-based services.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job">
-                <h3 class="job-title" onclick="toggleJobDetails('job4Details')">SUNAT, Lima, Peru — Project Manager/Scrum Master</h3>
-                <p>July 2016 – July 2017</p>
-                <div id="job4Details" class="job-details" style="display: none;">
-                    <ul class="experience-list">
-                        <li><camu>Agile Product Development</camu>: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
-                        <li><camu>Compliance and Process Integration</camu>: Ensured platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job">
-                <h3 class="job-title" onclick="toggleJobDetails('job5Details')">Various Clients: Siemens, Deloitte, HP, etc, CDMX — Project Manager</h3>
-                <p>2006 – 2016</p>
-                <div id="job5Details" class="job-details" style="display: none;">
-                    <ul class="experience-list">
-                        <li><camu>Product and Systems Integration</camu>: Led digital transformation projects for HR and finance platforms, focusing on integration and optimization for platform-based services.</li>
-                        <li><camu>Vendor Management</camu>: Defined project scopes, negotiated with vendors, and delivered solutions that closed gaps in platform offerings for clients in health, government, and retail sectors.</li>
-                        <li><camu>ERP System Migration</camu>: Directed ERP migrations, ensuring platform integrity and business operation continuity.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="educationDropdown" class="dropdown">
-            <ul>
-                <li>Computer Engineering</li>
-                <li>Faculty of Engineering, UNAM, CDMX, Mexico</li>
-                <li>1996-2001</li>
-            </ul>
-        </div>
-
-        <div id="certificationsDropdown" class="dropdown">
-            <ul>
-                <li>TenSteps Project Manager Certification (PMP)</li>
-                <li>Product Owner Certification</li>
-                <li>ScrumMaster Certification</li>
-                <li>SAFe for Teams Certification</li>
-                <li>ITIL V4.0 Foundations</li>
-            </ul>
-        </div>
-
-        <div id="trainingDropdown" class="dropdown">
-            <ul>
-                <li>Interpersonal Communication: Communicating with Assertiveness</li>
-                <li>Leading Teams with Emotional Intelligence</li>
-                <li>Operational Excellence: Assets and Technology</li>
-                <li>Project Management Center Course 1: Project Team Training</li>
-                <li>Design Thinking</li>
-                <li>DevOps</li>
-                <li>TechRoom by Latbc: Beyond BI & Analytics</li>
-            </ul>
-        </div>
-
-        <div id="TechnicalSkillsDropdown" class="dropdown">
-            <ul>
-                <li><camu>ERP Systems</camu>: PeopleSoft 8.8/9.1, Oracle E-Business Suite HCM, Workday HCM, SAP Manufacturing Execution and AVEVA (formerly Wonderware) MES, ServiceNow, HP ITSM</li>
-                <li><camu>Project Management Tools</camu>: MS Project, MS Azure DevOps, Rally, Jira, Confluence, Mural, Trello, Monday.com</li>
-                <li><camu>Programming Languages</camu>: Java, SQL, PeopleCode, HTML5, CSS</li>
-                <li><camu>Reporting Tools</camu>: nVision, SQR, PS Query, Tableau, Power BI, Google Analytics</li>
-                <li><camu>Operating Systems</camu>: Windows, Linux, Mac OS</li>
-            </ul>
-        </div>
-
-        <div id="languagesDropdown" class="dropdown">
-            <ul>
-                <li><camu>English</camu>: C1</li>
-                <li><camu>French</camu>: B1</li>
-            </ul>
-        </div>
-
-        <div id="contactDropdown" class="dropdown">
-            <ul>
-                <li><camu>Whatsapp</camu>: </li>
-                <li><camu>Email</camu>: </li>
-            </ul>
-        </div>
+    <section class="skills scroll-section">
+        <h2>Core Skills</h2>
+        <ul>
+            <li>MES Implementation</li>
+            <li>Project & Portfolio Management</li>
+            <li>Change Management</li>
+            <li>Stakeholder Management & Communication</li>
+            <li>Risk Management & Security Compliance</li>
+            <li>Agile Methodologies: Scrum, SAFe, Kanban, Agile SDLC</li>
+            <li>Waterfall Methodology</li>
+            <li>Team Leadership & Collaboration</li>
+            <li>Cross-Functional Team Leadership</li>
+            <li>Fluent in English and Spanish</li>
+        </ul>
     </section>
+
+    <section class="achievements scroll-section">
+        <h2>Relevant Achievements</h2> <!-- Nuevas logros relevantes -->
+        <ul>
+            <li>Successfully led a multi-site MES Implementation project across three plants, reducing manual interventions by 15%.</li>
+            <li>Guided cross-functional teams through change management processes, increasing adoption rates by 20%.</li>
+            <li>Managed a portfolio of projects, including a critical ERP integration, achieving seamless rollouts and positive stakeholder feedback.</li>
+        </ul>
+    </section>
+
+    <section class="experience scroll-section">
+        <h2>Experience</h2>
+
+        <div class="job">
+            <h3 class="job-title">Product Owner<br>Baxter, CDMX, México</h3>
+            <p>October 2022 – June 2024</p>
+            <div id="job1Details" class="job-details">
+                <ul class="experience-list">
+                    <li>Product & Integration Management: Spearheaded digital survey portal projects, enhancing customer engagement and aligning product strategy with customer needs.</li>
+                    <li>Data Optimization: Managed data cleaning, reducing costs by 10% and optimizing workflows for AP automation and platform services.</li>
+                    <li>Risk Management & Quality Assurance: Developed a Recovery Disaster Plan (RDP) and led security assessments to ensure compliance and system resilience.</li>
+                    <li>Vendor Management & Collaboration: Managed relationships with SaaS vendors, supporting commercial teams and integrating technology solutions to improve customer experience.</li>
+                    <li>Leadership & Delivery: Defined KPIs, led backlog management, and ensured seamless execution of platform-related projects.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job">
+            <h3 class="job-title">Project Manager/Scrum Master<br>Avattar Consulting, Monterrey, N.L., México</h3>
+            <p>September 2019 – June 2022</p>
+            <div id="job2Details" class="job-details">
+                <ul class="experience-list">
+                    <li>Led MES and ITSM implementations, aligning with agile methodologies and driving key milestones.</li>
+                    <li>Platform Services Development: Led ITSM y automatización de proyectos que se alinearon con la hoja de ruta del producto, ofreciendo soluciones que mejoraron los resultados comerciales y la satisfacción del cliente.</li>
+                    <li>Portfolio & Process Management: Managed a portfolio of supply chain projects, executing strategic initiatives and achieving milestones on time.</li>
+                    <li>Backlog & Roadmap Prioritization: Prioritized product backlogs based on business impact and customer needs, delivering results aligned with company objectives.</li>
+                    <li>Agile Leadership: Promoted continuous improvement through Agile practices and led cross-functional teams in product execution.</li>
+                    <li>Infrastructure & Operations Oversight: Supervised upgrades to support digital transformation initiatives and platform enhancements.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job">
+            <h3 class="job-title">Project Manager<br>DHL/Latbc Consulting, CDMX, México</h3>
+            <p>December 2017 – June 2019</p>
+            <div id="job3Details" class="job-details">
+                <ul class="experience-list">
+                    <li>HR Technology Transition: Directed the transition to new HR platforms, improving operational efficiency and ensuring seamless system integration.</li>
+                    <li>Project Portfolio Management: Managed a range of projects that aligned with company strategy, optimizing resources and improving platform stability.</li>
+                    <li>Drove change management efforts and facilitated collaboration between diverse global teams.</li>
+                    <li>Achieved a 10% cost reduction through effective risk mitigation and stakeholder communication.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job">
+            <h3 class="job-title">Project Manager<br>Soletanche Bachy, Paris, France</h3>
+            <p>September 2017 – November 2019</p>
+            <div id="job4Details" class="job-details">
+                <ul class="experience-list">
+                    <li>Financial Systems Integration: Led the integration of financial systems, streamlining AP processes to enhance platform performance and compliance with global standards.</li>
+                    <li>Automation & Process Optimization: Implemented OCR soluciones y automatizó flujos de trabajo, mejorando la eficiencia operativa para servicios basados en plataformas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job">
+            <h3 class="job-title">Scrum Master/Project Manager<br>SUNAT, Lima, Peru</h3>
+            <p>July 2016 – July 2017</p>
+            <div id="job5Details" class="job-details">
+                <ul class="experience-list">
+                    <li>Agile Product Development: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
+                    <li>Compliance & Process Integration: Ensured that platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job">
+            <h3 class="job-title">Consultant, Acting Manager, Project Manager, Functional & Technical Lead<br>Various Clients: Siemens, Deloitte, HP, etc., CDMX, México</h3>
+            <p>July 2015 – June 2016</p>
+            <div id="job6Details" class="job-details">
+                <ul class="experience-list">
+                    <li>ERP Systems Migration: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Puedes agregar más trabajos aquí -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Rafael Gallardo Santiago</p>
+    </footer>
 </body>
 </html>
