@@ -5,80 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resume</title>
     <link rel="stylesheet" href="style1.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            text-align: center;
-        }
-
-        .dropdown {
-            display: none; 
-            margin-top: 10px;
-            background-color: #000000;
-            border: 1px solid #000000;
-            padding: 1px;
-            border-radius: 10px;
-            position: absolute; /* For dropdown positioning */
-            width: 100%; /* Full width dropdown */
-            left: 0; /* Align with the button */
-        }
-
-        .dropdown-button {
-            background-color: #000000; 
-            color: white;
-            padding: 15px; /* Increase padding for easier touch */
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 15px;    
-            width: 100%; /* Full width on mobile */
-        }
-
-        .dropdown-button:hover {
-            background-color: #58d68d; 
-        }
-
-        .dropdown-button.active {
-            background-color: #58d68d; 
-        }
-
-        .job-title {
-            cursor: pointer;
-            color: #ffffff;
-            margin: 5px;
-        }
-
-        .job-title:hover {
-            color: #cb4335;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                font-size: 14px; /* Adjust font size for smaller screens */
-            }
-
-            .header h1 {
-                font-size: 24px; /* Make header smaller */
-            }
-
-            .dropdown-button h1 {
-                font-size: 16px; /* Smaller button text */
-            }
-
-            .dropdown {
-                padding: 5px; /* Reduce padding */
-            }
-
-            .job-title {
-                font-size: 16px; /* Smaller job title font */
-            }
-        }
-    </style>
     <script>
         let activeDropdown = null;
 
@@ -86,20 +12,20 @@
             const dropdown = document.getElementById(dropdownId);
             const buttons = document.querySelectorAll('.dropdown-button');
 
-            // Close the currently active dropdown if it is not the one being clicked
+            // Cerrar el menú desplegable activo actualmente si no es el que se está haciendo clic
             if (activeDropdown === dropdownId) {
                 dropdown.style.display = 'none';
                 activeDropdown = null;
                 button.classList.remove('active');
             } else {
-                // Close the currently active dropdown
+                // Cerrar el menú desplegable activo actualmente
                 if (activeDropdown) {
                     document.getElementById(activeDropdown).style.display = 'none';
                     const activeButton = Array.from(buttons).find(btn => btn.classList.contains('active'));
                     if (activeButton) activeButton.classList.remove('active');
                 }
 
-                // Open the new dropdown
+                // Abrir el nuevo menú desplegable
                 dropdown.style.display = 'block';
                 activeDropdown = dropdownId;
                 button.classList.add('active');
@@ -121,10 +47,10 @@
 
     <section class="summary">
         <h2>Professional Summary</h2>
-        <p>Experienced <strong><camu>Product Manager</camu></strong>, 
-        <strong><camu>Scrum Master</camu></strong> and 
-        <strong><camu>Project Manager</camu></strong> with a strong background 
-        in digital project management, <strong><camu>IT automation</camu></strong>, and 
+        <p>Experienced <camu>Product Manager</camu>, 
+        <camu>Scrum Master</camu> and 
+        <camu>Project Manager</camu> with a strong background 
+        in digital project management, <camu>IT automation</camu>, and 
         cross-functional leadership across various industries, including Government, Logistics, 
         Retail, Manufacturing, and Healthcare. Proven expertise in managing complex integrations, 
         aligning product development with business goals, and fostering vendor collaborations. 
@@ -184,11 +110,11 @@
                 <p>Oct 2022 - Jun 2024</p>
                 <div id="job1Details" style="display: none;">
                     <ul class="experience-list">
-                        <li><strong><camu>Product & Integration Management</camu></strong>: Spearheaded digital survey portal projects, enhancing customer engagement and aligning product strategy with customer needs.</li>
-                        <li><strong><camu>Data Optimization</camu></strong>: Managed data cleaning, reducing costs by 10% and optimizing workflows for AP automation and platform services.</li>
-                        <li><strong><camu>Risk Management & Quality Assurance</camu></strong>: Developed a Recovery Disaster Plan (RDP) and led security assessments to ensure compliance and system resilience.</li>
-                        <li><strong><camu>Vendor Management & Collaboration</camu></strong>: Managed relationships with SaaS vendors, supporting commercial teams and integrating technology solutions to improve customer experience.</li>
-                        <li><strong><camu>Leadership & Delivery</camu></strong>: Defined KPIs, led backlog management, and ensured seamless execution of platform-related projects.</li>
+                        <li><camu>Product & Integration Management</camu>: Spearheaded digital survey portal projects, enhancing customer engagement and aligning product strategy with customer needs.</li>
+                        <li><camu>Data Optimization</camu>: Managed data cleaning, reducing costs by 10% and optimizing workflows for AP automation and platform services.</li>
+                        <li><camu>Risk Management & Quality Assurance</camu>: Developed a Recovery Disaster Plan (RDP) and led security assessments to ensure compliance and system resilience.</li>
+                        <li><camu>Vendor Management & Collaboration</camu>: Managed relationships with SaaS vendors, supporting commercial teams and integrating technology solutions to improve customer experience.</li>
+                        <li><camu>Leadership & Delivery</camu>: Defined KPIs, led backlog management, and ensured seamless execution of platform-related projects.</li>
                     </ul>
                 </div>
             </div>
@@ -198,12 +124,12 @@
                 <p>September 2019 – June 2022</p>
                 <div id="job2Details" style="display: none;">
                     <ul class="experience-list">
-                        <li><strong><camu>Lead MES and ITSM implementations</camu></strong>: Aligning with agile methodologies and driving key milestones.</li>
-                        <li><strong><camu>Platform Services Development</camu></strong>: Led ITSM and automation projects that aligned with the product roadmap, delivering solutions that improved business outcomes and customer satisfaction.</li>
-                        <li><strong><camu>Portfolio & Process Management</camu></strong>: Managed a portfolio of supply chain projects, executing strategic initiatives and achieving milestones on time.</li>
-                        <li><strong><camu>Backlog & Roadmap Prioritization</camu></strong>: Prioritized product backlogs based on business impact and customer needs, delivering results aligned with company objectives.</li>
-                        <li><strong><camu>Agile Leadership</camu></strong>: Promoted continuous improvement through Agile practices and led cross-functional teams in product execution.</li>
-                        <li><strong><camu>Infrastructure & Operations Oversight</camu></strong>: Supervised upgrades to support digital transformation initiatives and platform enhancements.</li>
+                        <li><camu>Lead MES and ITSM implementations</camu>: Aligning with agile methodologies and driving key milestones.</li>
+                        <li><camu>Platform Services Development</camu>: Led ITSM and automation projects that aligned with the product roadmap, delivering solutions that improved business outcomes and customer satisfaction.</li>
+                        <li><camu>Portfolio & Process Management</camu>: Managed a portfolio of supply chain projects, executing strategic initiatives and achieving milestones on time.</li>
+                        <li><camu>Backlog & Roadmap Prioritization</camu>: Prioritized product backlogs based on business impact and customer needs, delivering results aligned with company objectives.</li>
+                        <li><camu>Agile Leadership</camu>: Promoted continuous improvement through Agile practices and led cross-functional teams in product execution.</li>
+                        <li><camu>Infrastructure & Operations Oversight</camu>: Supervised upgrades to support digital transformation initiatives and platform enhancements.</li>
                     </ul>
                 </div>
             </div>
@@ -213,8 +139,8 @@
                 <p>September 2017 – November 2017</p>
                 <div id="job3Details" style="display: none;">
                     <ul class="experience-list">
-                        <li><strong><camu>Financial Systems Integration</camu></strong>: Led the integration of financial systems, streamlining AP processes to enhance platform performance and compliance with global standards.</li>
-                        <li><strong><camu>Automation & Process Optimization</camu></strong>: Implemented OCR solutions and automated workflows, improving operational efficiency for platform-based services.</li>
+                        <li><camu>Financial Systems Integration</camu>: Led the integration of financial systems, streamlining AP processes to enhance platform performance and compliance with global standards.</li>
+                        <li><camu>Automation & Process Optimization</camu>: Implemented OCR solutions and automated workflows, improving operational efficiency for platform-based services.</li>
                     </ul>
                 </div>
             </div>
@@ -224,8 +150,8 @@
                 <p>July 2016 – July 2017</p>
                 <div id="job4Details" style="display: none;">
                     <ul class="experience-list">
-                        <li><strong><camu>Agile Product Development</camu></strong>: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
-                        <li><strong><camu>Compliance & Process Integration</camu></strong>: Ensured that platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
+                        <li><camu>Agile Product Development</camu>: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
+                        <li><camu>Compliance & Process Integration</camu>: Ensured that platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
                     </ul>
                 </div>
             </div>
@@ -235,9 +161,9 @@
                 <p>2006 – 2016</p>
                 <div id="job5Details" style="display: none;">
                     <ul class="experience-list">
-                        <li><strong><camu>Product & Systems Integration</camu></strong>: Led digital transformation projects for HR and financial platforms, focusing on seamless integration and optimization for platform-based services.</li>
-                        <li><strong><camu>Vendor Management</camu></strong>: Defined project scopes, negotiated with vendors, and delivered solutions that bridged gaps in platform offerings for clients in healthcare, government, and retail sectors.</li>
-                        <li><strong><camu>ERP Systems Migration</camu></strong>: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
+                        <li><camu>Product & Systems Integration</camu>: Led digital transformation projects for HR and financial platforms, focusing on seamless integration and optimization for platform-based services.</li>
+                        <li><camu>Vendor Management</camu>: Defined project scopes, negotiated with vendors, and delivered solutions that bridged gaps in platform offerings for clients in healthcare, government, and retail sectors.</li>
+                        <li><camu>ERP Systems Migration</camu>: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
                     </ul>
                 </div>
             </div>
@@ -275,25 +201,25 @@
 
         <div id="TechnicalSkillsDropdown" class="dropdown">
             <ul>
-                <li><strong><camu>ERP Systems</camu></strong>: PeopleSoft 8.8/9.1, Oracle E-Business Suite HCM, Workday HCM, SAP Manufacturing Execution and AVEVA (formerly Wonderware) MES, ServiceNow, HP ITSM</li>
-                <li><strong><camu>Project Management Tools</camu></strong>: MS Project, MS Azure DevOps, Rally, Jira, Confluence, Mural, Trello, Monday.com</li>
-                <li><strong><camu>Programming Languages</camu></strong>: Java, SQL, PeopleCode, HTML5, CSS</li>
-                <li><strong><camu>Reporting Tools</camu></strong>: nVision, SQR, PS Query, Tableau, Power BI, Google Analytics</li>
-                <li><strong><camu>Operating Systems</camu></strong>: Windows, Linux, Mac OS</li>
+                <li><camu>ERP Systems</camu>: PeopleSoft 8.8/9.1, Oracle E-Business Suite HCM, Workday HCM, SAP Manufacturing Execution and AVEVA (formerly Wonderware) MES, ServiceNow, HP ITSM</li>
+                <li><camu>Project Management Tools</camu>: MS Project, MS Azure DevOps, Rally, Jira, Confluence, Mural, Trello, Monday.com</li>
+                <li><camu>Programming Languages</camu>: Java, SQL, PeopleCode, HTML5, CSS</li>
+                <li><camu>Reporting Tools</camu>: nVision, SQR, PS Query, Tableau, Power BI, Google Analytics</li>
+                <li><camu>Operating Systems</camu>: Windows, Linux, Mac OS</li>
             </ul>
         </div>
 
         <div id="languagesDropdown" class="dropdown">
             <ul>
-                <li><strong><camu>English</camu></strong>: C1</li>
-                <li><strong><camu>French</camu></strong>: B1</li>
+                <li><camu>English</camu>: C1</li>
+                <li><camu>French</camu>: B1</li>
             </ul>
         </div>
 
         <div id="contactDropdown" class="dropdown">
             <ul>
-                <li><strong><camu>Whatsapp</camu></strong>: </li>
-                <li><strong><camu>Email</camu></strong>: </li>
+                <li><camu>Whatsapp</camu>: </li>
+                <li><camu>Email</camu>: </li>
             </ul>
         </div>
     </section>
