@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resume</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
     <style>
         /* Estilos generales */
         body {
@@ -15,12 +15,30 @@
             background-color: #f5f5f5;
         }
 
-        /* Estilo del encabezado */
-        header {
+        /* Estilo del encabezado principal */
+        .main-header {
             background: #007bff;
             color: #fff;
             padding: 20px;
             text-align: center;
+            position: relative;
+        }
+
+        /* Estilo del sticky header */
+        .sticky-header {
+            display: none; /* Ocultar por defecto */
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Para que esté encima de otros elementos */
+        }
+
+        /* Estilo para mostrar el sticky header cuando se hace scroll */
+        .sticky {
+            display: block; /* Mostrar cuando se active */
         }
 
         /* Estilo de las secciones */
@@ -81,12 +99,16 @@
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Rafael Gallardo Santiago</h1>
-            <p>Experienced Product Manager with a strong background in digital project management.</p>
-        </header>
+    <header class="main-header">
+        <h1>Rafael Gallardo Santiago</h1>
+        <p>Experienced Product Manager with a strong background in digital project management.</p>
+    </header>
 
+    <div class="sticky-header">
+        <h2>Rafael Gallardo Santiago</h2>
+    </div>
+
+    <div class="container">
         <section>
             <h2>Professional Summary</h2>
             <p>With over <strong>18</strong> years of experience managing projects across diverse industries including Government, Logistics, Retail, Manufacturing, and Health Care Services, I am dedicated to connecting and leading both technical and non-technical teams to deliver 
@@ -117,7 +139,7 @@
                 <li>Successfully led a multi-site MES Implementation project across three plants, reducing manual interventions by <strong>15%</strong>.</li>
                 <li>Guided cross-functional teams through change management processes, increasing adoption rates by <strong>20%</strong>.</li>
                 <li>Managed a portfolio of projects, including a critical ERP integration, achieving seamless rollouts and positive stakeholder feedback.</li>
-                <li><strong>15</strong> successfull implementations of ERP systems including PeopleSoft Financial and HR Suites, SAP SuccessFactors, and Workday, enhancing organizational efficiency and data integrity.</li>
+                <li><strong>15</strong> successful implementations of ERP systems including PeopleSoft Financial and HR Suites, SAP SuccessFactors, and Workday, enhancing organizational efficiency and data integrity.</li>
             </ul>
         </section>
 
@@ -144,7 +166,6 @@
                 <li>Backlog & Roadmap Prioritization: Prioritized product backlogs based on business impact and customer needs, delivering results aligned with company objectives.</li>
                 <li>Agile Leadership: Promoted continuous improvement through Agile practices and led cross-functional teams in product execution.</li>
                 <li>Infrastructure & Operations Oversight: Supervised upgrades to support digital transformation initiatives and platform enhancements.</li>
-
                 </ul>
             </div>
 
@@ -155,7 +176,6 @@
                     <li>Project Portfolio Management: Managed a range of projects that aligned with company strategy, optimizing resources and improving platform stability.</li>
                     <li>Drove change management efforts and facilitated collaboration between diverse global teams.</li>
                     <li>Achieved a 10% cost reduction through effective risk mitigation and stakeholder communication.</li>
-
                 </ul>
             </div>
 
@@ -163,8 +183,7 @@
             <div class="job-details">
                 <ul>
                      <li>Financial Systems Integration: Led the integration of financial systems, streamlining AP processes to enhance platform performance and compliance with global standards.</li>
-                <li>Automation & Process Optimization: Implemented OCR solutions y automatización de flujos de trabajo, mejorando la eficiencia operativa para servicios basados en plataformas.</li>
-
+                <li>Automation & Process Optimization: Implemented OCR solutions and workflow automation, improving operational efficiency for platform-based services.</li>
                 </ul>
             </div>
 
@@ -173,7 +192,6 @@
                 <ul>
                     <li>Agile Product Development: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
                 <li>Compliance & Process Integration: Ensured that platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
-
                 </ul>
                </div>
             <div class="job-title">Consultant, Acting Manager, Project Manager, Functional & Technical Lead - Various Clients: Siemens, Deloitte, HP, etc., CDMX, México (2006 – 2016)</div>
@@ -183,9 +201,7 @@
                 <li>Vendor Management: Defined project scopes, negotiated with vendors, and delivered solutions that bridged gaps in platform offerings for clients in healthcare, government, and retail sectors.</li>
                 <li>ERP Systems Migration: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
             </ul>
-
             </div>
-
         </section>
 
         <section>
@@ -227,7 +243,6 @@
                 <li>Methodologies: PMI, Agile-Scrum, SDLC, ITIL V04, Six Sigma.</li>
                 <li>Reporting Tools: nVision, SQR, PS Query, SQL, Tableau, Power BI, Google Analytics.</li>
                 <li>Operating Systems: Windows, Linux, Mac OS.</li>
-
             </ul>
         </section>
 
@@ -245,6 +260,16 @@
     </div>
 
     <script>
+        // Manejar el comportamiento del sticky header
+        window.onscroll = function() {
+            const stickyHeader = document.querySelector('.sticky-header');
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                stickyHeader.classList.add('sticky');
+            } else {
+                stickyHeader.classList.remove('sticky');
+            }
+        };
+
         // Manejar el comportamiento del acordeón
         const jobTitles = document.querySelectorAll('.job-title');
         const jobDetails = document.querySelectorAll('.job-details');
@@ -275,3 +300,4 @@
     </script>
 </body>
 </html>
+
