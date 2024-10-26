@@ -24,18 +24,18 @@
             padding: 10px; /* Relleno de la navbar */
             position: fixed; /* Fija en la pantalla */
             top: 0; /* Arriba de la pantalla */
-            left: 0; /* Posición inicial en la izquierda */
+            left: 0; /* A la izquierda */
             width: 100%; /* Ancho completo */
+            overflow-x: auto; /* Permitir desplazamiento horizontal */
+            white-space: nowrap; /* Evitar saltos de línea */
             z-index: 999; /* Mantener por encima */
-            overflow-x: auto; /* Permitir scroll horizontal */
-            white-space: nowrap; /* Evitar el salto de línea */
         }
 
         .navbar a {
             color: #ffffff; /* Color de texto de los enlaces */
             text-decoration: none; /* Sin subrayado */
             padding: 15px; /* Relleno de los enlaces */
-            margin: 0 5px; /* Margen horizontal entre enlaces */
+            margin: 0 5px; /* Margen entre enlaces */
             transition: background 0.3s, color 0.3s, font-weight 0.3s; /* Transición suave */
             border-radius: 5px; /* Bordes redondeados */
             text-transform: uppercase; /* Texto en mayúsculas */
@@ -61,7 +61,7 @@
             background: #333333; /* Color de fondo del encabezado */
             color: #ffffff; /* Color del texto */
             border-radius: 10px; /* Bordes redondeados */
-            margin-top: 60px; /* Margen superior para evitar superposición con la navbar */
+            margin-top: 60px; /* Margen superior para evitar superposición con navbar */
             margin-left: 20px; /* Margen a la izquierda */
             margin-right: 20px; /* Margen a la derecha */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
@@ -117,9 +117,12 @@
 
         @media (min-width: 768px) {
             .navbar {
-                flex-direction: column; /* Dirección de la navbar en columna en pantallas más grandes */
-                left: -220px; /* Oculto inicialmente */
-                transition: left 0.3s; /* Transición suave al mostrar/ocultar */
+                flex-direction: column; /* Dirección de la navbar en columna */
+                left: 0; /* A la izquierda */
+                width: 200px; /* Ancho de la navbar */
+                height: 100%; /* Altura completa */
+                position: fixed; /* Fija en la pantalla */
+                overflow-y: auto; /* Permitir desplazamiento vertical */
             }
             .navbar.show {
                 left: 0; /* Mostrar la navbar */
@@ -172,102 +175,97 @@
 
         <section id="core-skills"> <!-- Sección de habilidades clave -->
             <h2>CORE SKILLS</h2> <!-- Título de la sección -->
-            <ul> <!-- Lista de habilidades -->
-                <li>MES Implementation & ERP Systems Integration</li>
-                <li>Agile & Waterfall Project Management</li>
-                <li>Cross-Functional Team Leadership</li>
-                <li>Stakeholder Engagement</li>
-                <li>Continuous Improvement & Process Optimization</li>
-                <li>Data Analysis & Reporting</li>
+            <ul> <!-- Lista de habilidades clave -->
+                <li>Leadership and Team Support</li> <!-- Habilidad 1 -->
+                <li>Project Management</li> <!-- Habilidad 2 -->
+                <li>Lean Six Sigma (Green Belt)</li> <!-- Habilidad 3 -->
+                <li>Agile Methodologies</li> <!-- Habilidad 4 -->
+                <li>Digital Transformation</li> <!-- Habilidad 5 -->
+                <li>Strategic Planning</li> <!-- Habilidad 6 -->
+                <li>Cross-functional Team Leadership</li> <!-- Habilidad 7 -->
             </ul>
         </section>
 
         <section id="achievements"> <!-- Sección de logros relevantes -->
             <h2>RELEVANT ACHIEVEMENTS</h2> <!-- Título de la sección -->
             <ul> <!-- Lista de logros -->
-                <li>Improved project delivery time by <strong>30%</strong> through implementation of Agile practices.</li>
-                <li>Successfully led a cross-functional team to achieve a <strong>20%</strong> reduction in operational costs.</li>
-                <li>Implemented a new ERP system resulting in <strong>25%</strong> increase in data accuracy.</li>
+                <li>Successfully led a cross-functional team in a digital transformation project, resulting in a 20% increase in operational efficiency.</li> <!-- Logro 1 -->
+                <li>Implemented a new project management framework that improved project delivery time by 30%.</li> <!-- Logro 2 -->
+                <li>Facilitated Agile training sessions for over 200 employees, fostering a culture of continuous improvement.</li> <!-- Logro 3 -->
             </ul>
         </section>
 
         <section id="experience"> <!-- Sección de experiencia profesional -->
             <h2>PROFESSIONAL EXPERIENCE</h2> <!-- Título de la sección -->
-
-            <div class="job-title" onclick="toggleDetails(this)"> <!-- Título del trabajo -->
-                Product Manager - Digital Transformation, XYZ Corp. (2020 - Present) <!-- Detalles del trabajo -->
+            <div class="job-title" onclick="toggleDetails('job1-details')">Product Manager - Company A (2015 - Present)</div> <!-- Título de trabajo 1 -->
+            <div class="job-details" id="job1-details"> <!-- Detalles del trabajo 1 -->
+                <p>Leading a team of product owners and developers to deliver digital products that meet customer needs.</p> <!-- Descripción del trabajo 1 -->
             </div>
-            <div class="job-details"> <!-- Detalles del trabajo -->
-                <p>Oversee digital transformation projects, implementing Agile practices across teams to enhance collaboration and efficiency.</p>
+            <div class="job-title" onclick="toggleDetails('job2-details')">Project Manager - Company B (2012 - 2015)</div> <!-- Título de trabajo 2 -->
+            <div class="job-details" id="job2-details"> <!-- Detalles del trabajo 2 -->
+                <p>Managed multiple projects with budgets exceeding $1M, ensuring timely delivery and stakeholder satisfaction.</p> <!-- Descripción del trabajo 2 -->
             </div>
-
-            <div class="job-title" onclick="toggleDetails(this)"> <!-- Título del trabajo -->
-                Project Manager, ABC Inc. (2015 - 2020) <!-- Detalles del trabajo -->
-            </div>
-            <div class="job-details"> <!-- Detalles del trabajo -->
-                <p>Managed multiple projects in logistics, leading cross-functional teams to deliver innovative solutions.</p>
-            </div>
-
-            <div class="job-title" onclick="toggleDetails(this)"> <!-- Título del trabajo -->
-                Senior Business Analyst, DEF Ltd. (2010 - 2015) <!-- Detalles del trabajo -->
-            </div>
-            <div class="job-details"> <!-- Detalles del trabajo -->
-                <p>Analyzed business requirements and translated them into technical specifications for project implementation.</p>
+            <div class="job-title" onclick="toggleDetails('job3-details')">Project Coordinator - Company C (2008 - 2012)</div> <!-- Título de trabajo 3 -->
+            <div class="job-details" id="job3-details"> <!-- Detalles del trabajo 3 -->
+                <p>Supported project managers in coordinating project activities, schedules, and resources.</p> <!-- Descripción del trabajo 3 -->
             </div>
         </section>
 
         <section id="education"> <!-- Sección de educación -->
             <h2>EDUCATION</h2> <!-- Título de la sección -->
-            <p>Bachelor's Degree in Business Administration, University of Example (2005 - 2009)</p> <!-- Detalles educativos -->
+            <ul> <!-- Lista de educación -->
+                <li>Master's Degree in Business Administration - University X (2010)</li> <!-- Educación 1 -->
+                <li>Bachelor's Degree in Computer Science - University Y (2008)</li> <!-- Educación 2 -->
+            </ul>
         </section>
 
         <section id="certifications"> <!-- Sección de certificaciones -->
             <h2>CERTIFICATIONS</h2> <!-- Título de la sección -->
             <ul> <!-- Lista de certificaciones -->
-                <li>Certified Scrum Master (CSM)</li>
-                <li>Project Management Professional (PMP)</li>
+                <li>Certified ScrumMaster (CSM)</li> <!-- Certificación 1 -->
+                <li>Project Management Professional (PMP)</li> <!-- Certificación 2 -->
+                <li>Lean Six Sigma Green Belt</li> <!-- Certificación 3 -->
             </ul>
         </section>
 
         <section id="training"> <!-- Sección de formación -->
             <h2>TRAINING</h2> <!-- Título de la sección -->
             <ul> <!-- Lista de formación -->
-                <li>Agile Leadership Training</li>
-                <li>Advanced Project Management Techniques</li>
+                <li>Agile Leadership Training</li> <!-- Formación 1 -->
+                <li>Advanced Project Management</li> <!-- Formación 2 -->
             </ul>
         </section>
 
         <section id="technical-skills"> <!-- Sección de habilidades técnicas -->
             <h2>TECHNICAL SKILLS</h2> <!-- Título de la sección -->
             <ul> <!-- Lista de habilidades técnicas -->
-                <li>Microsoft Project</li>
-                <li>JIRA</li>
-                <li>Confluence</li>
-                <li>SQL</li>
-                <li>Tableau</li>
+                <li>JIRA, Confluence</li> <!-- Habilidad técnica 1 -->
+                <li>Microsoft Project, Trello</li> <!-- Habilidad técnica 2 -->
+                <li>SQL, Python</li> <!-- Habilidad técnica 3 -->
+                <li>Microsoft Office Suite</li> <!-- Habilidad técnica 4 -->
             </ul>
         </section>
 
         <section id="languages"> <!-- Sección de idiomas -->
             <h2>LANGUAGES</h2> <!-- Título de la sección -->
             <ul> <!-- Lista de idiomas -->
-                <li>English (Fluent)</li>
-                <li>Spanish (Native)</li>
+                <li>English (Fluent)</li> <!-- Idioma 1 -->
+                <li>Spanish (Native)</li> <!-- Idioma 2 -->
             </ul>
         </section>
     </main>
 
     <footer> <!-- Pie de página -->
-        <p>Contact: rafael@example.com | LinkedIn: linkedin.com/in/rafaelgallardo</p> <!-- Información de contacto -->
+        <p>&copy; 2024 Rafael Gallardo Santiago. All rights reserved.</p> <!-- Texto de derechos de autor -->
     </footer>
 
     <script>
-        function toggleDetails(element) { // Función para alternar detalles del trabajo
-            const details = element.nextElementSibling; // Obtener el siguiente elemento hermano
-            if (details.style.display === "block") { // Comprobar si está visible
-                details.style.display = "none"; // Ocultar
+        function toggleDetails(id) { // Función para alternar detalles
+            var details = document.getElementById(id); // Obtener detalles
+            if (details.style.display === "none" || details.style.display === "") { // Comprobar si está oculto
+                details.style.display = "block"; // Mostrar detalles
             } else {
-                details.style.display = "block"; // Mostrar
+                details.style.display = "none"; // Ocultar detalles
             }
         }
     </script>
