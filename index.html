@@ -3,85 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume of Rafael Gallardo Santiago, experienced Product Manager specializing in digital project management.">
+    <meta name="keywords" content="Resume, Product Manager, Project Management, Agile, Certifications">
     <title>My Resume</title>
     <link rel="stylesheet" href="style1.css">
     <style>
-        /* Estilos generales */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
+            color: #333333;
         }
 
-        /* Estilo del encabezado principal */
-        .main-header {
-            background: #007bff;
-            color: #fff;
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            background: #000000;
             padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Estilo del sticky header */
-        .sticky-header {
-            display: none; /* Ocultar por defecto */
-            background: #007bff;
-            color: #fff;
-            padding: 10px;
             position: fixed;
             top: 0;
-            width: 100%;
-            z-index: 1000; /* Para que esté encima de otros elementos */
+            left: 0;
+            width: 200px;
+            height: 100%;
+            z-index: 999;
         }
 
-        /* Estilo para mostrar el sticky header cuando se hace scroll */
-        .sticky {
-            display: block; /* Mostrar cuando se active */
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px;
+            margin: 5px 0;
+            transition: background 0.3s, color 0.3s, font-weight 0.3s;
+            border-radius: 5px;
+            text-transform: uppercase;
         }
 
-        /* Estilo de las secciones */
+        .navbar a:hover, .navbar a:focus {
+            background: #ff6f20;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .navbar a.active {
+            background: #ff6f20;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .main-header {
+            padding: 80px 20px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+            background: #333333;
+            color: #ffffff;
+            border-radius: 10px;
+            margin-left: 220px;
+            margin-right: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         section {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: #fff;
+            background: #ffffff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ff6f20;
             transition: background 0.3s ease;
         }
 
-        /* Efecto de resaltado al pasar el mouse */
         section:hover {
-            background-color: #e0e0e0;
+            background-color: #f2f2f2;
         }
 
-        /* Estilo de los títulos */
         h2 {
-            border-bottom: 2px solid #007bff;
+            border-bottom: 2px solid #ff6f20;
             padding-bottom: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
         }
 
-        /* Estilo de las listas */
         ul {
             list-style-type: disc;
             margin-left: 20px;
         }
 
-        /* Estilo del pie de página */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #007bff;
-            color: #fff;
-            position: relative;
-        }
-
-        /* Estilo del acordeón */
         .job-title {
             cursor: pointer;
-            background: #e9ecef;
+            background: #e7e0d2;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -91,32 +113,95 @@
         .job-details {
             display: none;
             padding: 10px;
-            border-left: 3px solid #007bff;
+            border-left: 3px solid #ff6f20;
             margin-top: 5px;
-            background: #f1f1f1;
+            background: #f9f9f9;
+        }
+
+        .job-details.show {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000000;
+            color: #ffffff;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                height: auto;
+                width: 100%;
+                position: static; /* Cambiar para móviles */
+            }
+
+            .navbar a {
+                margin: 0;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .main-header {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbar.show {
+            display: flex;
+        }
+
+        .navbar.hide {
+            display: none;
         }
     </style>
 </head>
 <body>
 
+    <!-- Botón para colapsar en móvil -->
+    <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+
+    <!-- Barra de navegación principal -->
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="#professional-summary">PROFESSIONAL SUMMARY</a>
+        <a href="#core-skills">CORE SKILLS</a>
+        <a href="#achievements">RELEVANT ACHIEVEMENTS</a>
+        <a href="#experience">PROFESSIONAL EXPERIENCE</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#certifications">CERTIFICATIONS</a>
+        <a href="#training">TRAINING</a>
+        <a href="#technical-skills">TECHNICAL SKILLS</a>
+        <a href="#languages">LANGUAGES</a>
+    </nav>
+
+    <!-- Encabezado principal con nombre y resumen -->
     <header class="main-header">
-        <h1>Rafael Gallardo Santiago</h1>
+        <h1>RAFAEL GALLARDO SANTIAGO</h1>
         <p>Experienced Product Manager with a strong background in digital project management.</p>
     </header>
 
-    <div class="sticky-header">
-        <h2>Rafael Gallardo Santiago</h2>
-    </div>
-
-    <div class="container">
-        <section>
-            <h2>Professional Summary</h2>
+    <!-- Contenido principal -->
+    <main class="container">
+        <!-- Sección de resumen profesional -->
+        <section id="professional-summary">
+            <h2>PROFESSIONAL SUMMARY</h2>
             <p>With over <strong>18</strong> years of experience managing projects across diverse industries including Government, Logistics, Retail, Manufacturing, and Health Care Services, I am dedicated to connecting and leading both technical and non-technical teams to deliver 
-               optimal solutions tailored to organizational needs. My expertise spans Agile methodologies, strategic planning, and cross-functional team leadership, with a proven track record in driving technological advancements and operational efficiencies.</p>
+                   optimal solutions tailored to organizational needs. My expertise spans Agile methodologies, strategic planning, and cross-functional team leadership, with a proven track record in driving technological advancements and operational efficiencies.</p>
         </section>
 
-        <section>
-            <h2>Core Skills</h2>
+        <!-- Sección de habilidades clave -->
+        <section id="core-skills">
+            <h2>CORE SKILLS</h2>
             <ul>
                 <li>MES Implementation & ERP Systems Integration</li>
                 <li>Project & Portfolio Management</li>
@@ -133,19 +218,20 @@
             </ul>
         </section>
 
-        <section>
-            <h2>Relevant Achievements</h2>
+        <!-- Sección de logros relevantes -->
+        <section id="achievements">
+            <h2>RELEVANT ACHIEVEMENTS</h2>
             <ul>
                 <li>Successfully led a multi-site MES Implementation project across three plants, reducing manual interventions by <strong>15%</strong>.</li>
                 <li>Guided cross-functional teams through change management processes, increasing adoption rates by <strong>20%</strong>.</li>
                 <li>Managed a portfolio of projects, including a critical ERP integration, achieving seamless rollouts and positive stakeholder feedback.</li>
-                <li><strong>15</strong> successful implementations of ERP systems including PeopleSoft Financial and HR Suites, SAP SuccessFactors, and Workday, enhancing organizational efficiency and data integrity.</li>
+                <li><strong>Certified ScrumMaster</strong> and <strong>Agile Product Owner</strong> with a focus on iterative project delivery.</li>
             </ul>
         </section>
 
-        <section>
-            <h2>Professional Experience</h2>
-
+        <!-- Sección de experiencia profesional -->
+        <section id="experience">
+            <h2>PROFESSIONAL EXPERIENCE</h2>
             <div class="job-title">Product Owner - Baxter, CDMX, México (October 2022 – June 2024)</div>
             <div class="job-details">
                 <ul>
@@ -201,15 +287,19 @@
                 <li>Vendor Management: Defined project scopes, negotiated with vendors, and delivered solutions that bridged gaps in platform offerings for clients in healthcare, government, and retail sectors.</li>
                 <li>ERP Systems Migration: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
             </ul>
-            </div>
+
         </section>
 
-        <section>
+        <!-- Sección de educación -->
+        <section id="education">
             <h2>EDUCATION</h2>
-            <p>Ingeniería en Computación y Sistemas, Facultad de Ingeniería, UNAM, CDMX, México, 1996–2001</p>
+            <ul>
+               <p>Ingeniería en Computación y Sistemas, Facultad de Ingeniería, UNAM, CDMX, México, 1996–2001</p>
+            </ul>
         </section>
 
-        <section>
+        <!-- Sección de certificaciones -->
+        <section id="certifications">
             <h2>CERTIFICATIONS</h2>
             <ul>
                 <li>TenSteps Project Manager Certification (PMP)</li>
@@ -220,10 +310,11 @@
             </ul>
         </section>
 
-        <section>
+        <!-- Sección de formación -->
+        <section id="training">
             <h2>TRAINING</h2>
             <ul>
-                <li>Interpersonal Communication: Communicating Assertively</li>
+                 <li>Interpersonal Communication: Communicating Assertively</li>
                 <li>Leading Teams with Emotional Intelligence</li>
                 <li>Operations Excellence – Assets and Technology</li>
                 <li>Project Management Center Course 1: Project Team Training</li>
@@ -233,71 +324,58 @@
             </ul>
         </section>
 
-        <section>
+        <!-- Sección de habilidades técnicas -->
+        <section id="technical-skills">
             <h2>TECHNICAL SKILLS</h2>
             <ul>
-                <li>ERP Systems: PeopleSoft 8.8/9.1, Oracle E-Business Suite HCM, Workday HCM, SAP Manufacturing Execution and AVEVA (formerly Wonderware) MES.</li>
-                <li>Project Managing Tools: MS Project, MS Azure DevOps, Rally, Jira, Confluence, Mural, Trello, Monday.com.</li>
-                <li>Programming Languages: Java, SQL, PeopleCode, HTML5, CSS.</li>
-                <li>Tools: Test Director, GitHub, ServiceNow, HP ITSM, Notion, Product Plan, Figma.</li>
-                <li>Methodologies: PMI, Agile-Scrum, SDLC, ITIL V04, Six Sigma.</li>
-                <li>Reporting Tools: nVision, SQR, PS Query, SQL, Tableau, Power BI, Google Analytics.</li>
-                <li>Operating Systems: Windows, Linux, Mac OS.</li>
+                <li><strong>ERP Systems</strong>: PeopleSoft 8.8/9.1, Oracle E-Business Suite HCM, Workday HCM, SAP Manufacturing Execution, Success Factors and AVEVA (formerly Wonderware) MES.</li>
+                <li><strong>Project Managing Tools</strong>: MS Project, MS Azure DevOps, Rally, Jira, Confluence, Mural, Trello, Monday.com.</li>
+                <li><strong>Programming Languages</strong>: Java, SQL, PeopleCode, HTML5, CSS.</li>
+                <li><strong>Tools</strong>: Test Director, GitHub, ServiceNow, HP ITSM, Notion, Product Plan, Figma.</li>
+                <li><strong>Methodologies</strong>: PMI, Agile-Scrum, SDLC, ITIL V04, Six Sigma.</li>
+                <li><strong>Reporting Tools</strong>: nVision, SQR, PS Query, SQL, Tableau, Power BI, Google Analytics.</li>
+                <li><strong>Operating Systems</strong>: Windows, Linux, Mac OS.</li>
+
             </ul>
         </section>
 
-        <section>
+        <!-- Sección de idiomas -->
+        <section id="languages">
             <h2>LANGUAGES</h2>
             <ul>
-                <li>English: C1</li>
-                <li>French: B1</li>
+                <li>English - C1</li>
+                <li>French - B1</li>
             </ul>
         </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2024 Rafael Gallardo Santiago</p>
-        </footer>
-    </div>
+    <footer>
+        <p>&copy; 2024 Rafael Gallardo Santiago</p>
+    </footer>
 
     <script>
-        // Manejar el comportamiento del sticky header
-        window.onscroll = function() {
-            const stickyHeader = document.querySelector('.sticky-header');
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                stickyHeader.classList.add('sticky');
-            } else {
-                stickyHeader.classList.remove('sticky');
-            }
-        };
+        // Script para el comportamiento de la barra de navegación y mostrar/ocultar detalles de trabajo
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('show');
+        }
 
-        // Manejar el comportamiento del acordeón
         const jobTitles = document.querySelectorAll('.job-title');
-        const jobDetails = document.querySelectorAll('.job-details');
-
-        jobTitles.forEach((title, index) => {
-            title.addEventListener('click', () => {
-                // Cerrar todas las secciones abiertas
-                jobDetails.forEach((detail, i) => {
-                    if (i !== index) {
-                        detail.style.display = 'none';
-                    }
-                });
-
-                // Alternar la sección actual
-                const currentDetail = jobDetails[index];
-                currentDetail.style.display = (currentDetail.style.display === 'block') ? 'none' : 'block';
+        jobTitles.forEach(jobTitle => {
+            jobTitle.addEventListener('click', () => {
+                const details = jobTitle.nextElementSibling;
+                details.classList.toggle('show');
             });
         });
 
-        // Cerrar todas las secciones al hacer clic fuera de ellas
-        document.addEventListener('click', (event) => {
-            if (!event.target.classList.contains('job-title')) {
-                jobDetails.forEach(detail => {
-                    detail.style.display = 'none';
-                });
-            }
+        // Resaltar enlace activo en la barra de navegación
+        const links = document.querySelectorAll('.navbar a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
         });
     </script>
 </body>
 </html>
-
