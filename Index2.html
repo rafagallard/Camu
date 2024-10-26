@@ -118,10 +118,11 @@
         @media (min-width: 768px) {
             .navbar {
                 flex-direction: column; /* Dirección de la navbar en columna */
-                left: -220px; /* Oculto inicialmente */
+                left: 0; /* A la izquierda */
                 width: 200px; /* Ancho de la navbar */
                 height: 100%; /* Altura completa */
-                transition: left 0.3s; /* Transición suave al mostrar/ocultar */
+                position: fixed; /* Fija en la pantalla */
+                overflow-y: auto; /* Permitir desplazamiento vertical */
             }
             .navbar.show {
                 left: 0; /* Mostrar la navbar */
@@ -174,8 +175,8 @@
 
         <section id="core-skills"> <!-- Sección de habilidades clave -->
             <h2>CORE SKILLS</h2> <!-- Título de la sección -->
-            <ul> <!-- Lista de habilidades -->
-                <li>MES Implementation & Support</li> <!-- Habilidad 1 -->
+            <ul> <!-- Lista de habilidades clave -->
+                <li>Leadership and Team Support</li> <!-- Habilidad 1 -->
                 <li>Project Management</li> <!-- Habilidad 2 -->
                 <li>Lean Six Sigma (Green Belt)</li> <!-- Habilidad 3 -->
                 <li>Agile Methodologies</li> <!-- Habilidad 4 -->
@@ -270,4 +271,3 @@
     </script>
 </body>
 </html>
-
