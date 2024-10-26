@@ -1,166 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Resume</title>
-    <link rel="stylesheet" href="style2.css"> <!-- Enlace a la hoja de estilo -->
-    <script>
-        // Cerrar detalles de trabajo al hacer clic fuera de ellos
-        document.addEventListener('click', (event) => {
-            const jobDetails = document.querySelectorAll('.job-details');
-            if (!event.target.closest('.job-title')) {
-                jobDetails.forEach(details => details.classList.remove('active'));
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
+    <meta name="description" content="Resume of Rafael Gallardo Santiago, experienced Product Manager specializing in digital project management."> <!-- Descripción del contenido -->
+    <meta name="keywords" content="Resume, Product Manager, Project Management, Agile, Certifications"> <!-- Palabras clave para SEO -->
+    <title>My Resume</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="style2.css"> <!-- Enlace a la hoja de estilos externa -->
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif; /* Fuente principal */
+            margin: 0; /* Sin margen */
+            padding: 0; /* Sin relleno */
+            line-height: 1.6; /* Altura de línea */
+            background-color: #ffffff; /* Color de fondo */
+            color: #333333; /* Color del texto */
+        }
+
+        .navbar {
+            display: flex; /* Usar flexbox para la disposición */
+            flex-direction: row; /* Dirección de la navbar en fila */
+            background: #000000; /* Color de fondo de la navbar */
+            padding: 10px; /* Relleno de la navbar */
+            position: fixed; /* Fija en la pantalla */
+            top: 0; /* Arriba de la pantalla */
+            left: 0; /* A la izquierda */
+            width: 100%; /* Ancho completo */
+            overflow-x: auto; /* Permitir desplazamiento horizontal */
+            white-space: nowrap; /* Evitar saltos de línea */
+            z-index: 999; /* Mantener por encima */
+        }
+
+        .navbar a {
+            color: #ffffff; /* Color de texto de los enlaces */
+            text-decoration: none; /* Sin subrayado */
+            padding: 15px; /* Relleno de los enlaces */
+            margin: 0 5px; /* Margen entre enlaces */
+            transition: background 0.3s, color 0.3s, font-weight 0.3s; /* Transición suave */
+            border-radius: 5px; /* Bordes redondeados */
+            text-transform: uppercase; /* Texto en mayúsculas */
+        }
+
+        .navbar a:hover, .navbar a:focus {
+            background: #ff6f20; /* Color de fondo al pasar el mouse */
+            color: #000000; /* Color de texto al pasar el mouse */
+            font-weight: bold; /* Texto en negrita al pasar el mouse */
+        }
+
+        .navbar a.active {
+            background: #ff6f20; /* Color de fondo activo */
+            color: #000000; /* Color de texto activo */
+            font-weight: bold; /* Negrita para enlace activo */
+        }
+
+        .main-header {
+            padding: 80px 20px 20px; /* Relleno del encabezado */
+            text-align: center; /* Centrar texto */
+            position: relative; /* Posición relativa */
+            z-index: 1000; /* Mantener por encima */
+            background: #333333; /* Color de fondo del encabezado */
+            color: #ffffff; /* Color del texto */
+            border-radius: 10px; /* Bordes redondeados */
+            margin-top: 60px; /* Margen superior para evitar superposición con navbar */
+            margin-left: 20px; /* Margen a la izquierda */
+            margin-right: 20px; /* Margen a la derecha */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        section {
+            max-width: 800px; /* Ancho máximo de la sección */
+            margin: 20px auto; /* Margen automático */
+            padding: 20px; /* Relleno de la sección */
+            background: #ffffff; /* Color de fondo de la sección */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+            border: 2px solid #ff6f20; /* Borde */
+            transition: background 0.3s ease; /* Transición de fondo */
+        }
+
+        section:hover {
+            background-color: #f2f2f2; /* Cambio de color al pasar el mouse */
+        }
+
+        h2 {
+            border-bottom: 2px solid #ff6f20; /* Línea inferior */
+            padding-bottom: 10px; /* Relleno inferior */
+            cursor: pointer; /* Cambiar cursor */
+            text-transform: uppercase; /* Texto en mayúsculas */
+        }
+
+        .job-title {
+            cursor: pointer; /* Cambiar cursor */
+            background: #e7e0d2; /* Color de fondo de título de trabajo */
+            padding: 10px; /* Relleno */
+            border: 1px solid #ddd; /* Borde */
+            border-radius: 5px; /* Bordes redondeados */
+            margin: 10px 0; /* Margen */
+        }
+
+        .job-details {
+            display: none; /* Oculto por defecto */
+            padding: 10px; /* Relleno */
+            border-left: 3px solid #ff6f20; /* Borde izquierdo */
+            margin-top: 5px; /* Margen superior */
+            background: #f9f9f9; /* Color de fondo */
+        }
+
+        footer {
+            text-align: center; /* Centrar texto en pie de página */
+            padding: 20px; /* Relleno */
+            background: #000000; /* Color de fondo */
+            color: #ffffff; /* Color de texto */
+            position: relative; /* Posición relativa */
+            margin-top: 20px; /* Margen superior */
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: column; /* Dirección de la navbar en columna */
+                left: -220px; /* Oculto inicialmente */
+                width: 200px; /* Ancho de la navbar */
+                height: 100%; /* Altura completa */
+                transition: left 0.3s; /* Transición suave al mostrar/ocultar */
             }
-        });
+            .navbar.show {
+                left: 0; /* Mostrar la navbar */
+            }
+            .main-header {
+                margin-left: 220px; /* Margen a la izquierda para el encabezado */
+            }
+        }
 
-        // Agregar efecto de scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.scroll-section');
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* Tamaño de fuente más pequeño en móvil */
+            }
+            .main-header {
+                margin-left: 0; /* Sin margen a la izquierda */
+                margin-right: 0; /* Sin margen a la derecha */
+            }
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Añadir la clase visible
-                        observer.unobserve(entry.target); // Dejar de observar
-                    }
-                });
-            });
-
-            sections.forEach(section => {
-                observer.observe(section); // Observar cada sección
-            });
-        });
-    </script>
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave */
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Rafael Gallardo Santiago</h1> <!-- Nombre del usuario -->
+
+    <nav class="navbar" aria-label="Main navigation"> <!-- Barra de navegación principal -->
+        <a href="#professional-summary">PROFESSIONAL SUMMARY</a> <!-- Enlace a resumen profesional -->
+        <a href="#core-skills">CORE SKILLS</a> <!-- Enlace a habilidades clave -->
+        <a href="#achievements">RELEVANT ACHIEVEMENTS</a> <!-- Enlace a logros relevantes -->
+        <a href="#experience">PROFESSIONAL EXPERIENCE</a> <!-- Enlace a experiencia profesional -->
+        <a href="#education">EDUCATION</a> <!-- Enlace a educación -->
+        <a href="#certifications">CERTIFICATIONS</a> <!-- Enlace a certificaciones -->
+        <a href="#training">TRAINING</a> <!-- Enlace a formación -->
+        <a href="#technical-skills">TECHNICAL SKILLS</a> <!-- Enlace a habilidades técnicas -->
+        <a href="#languages">LANGUAGES</a> <!-- Enlace a idiomas -->
+    </nav>
+
+    <header class="main-header"> <!-- Encabezado principal -->
+        <h1>RAFAEL GALLARDO SANTIAGO</h1> <!-- Nombre del candidato -->
+        <p>Experienced Product Manager with a strong background in digital project management., facilitator for agile transformation.</p> <!-- Descripción breve -->
     </header>
 
-    <section class="summary scroll-section">
-        <h2>Professional Summary</h2> <!-- Resumen profesional -->
-        <p>Experienced Product Manager, 
-        Scrum Master and 
-        Project Manager with a strong background 
-        in digital project management, IT automation, and 
-        cross-functional leadership across various industries, including Government, Logistics, 
-        Retail, Manufacturing, and Healthcare. Proven expertise in managing complex integrations, 
-        aligning product development with business goals, and fostering vendor collaborations. 
-        Adept at driving strategic initiatives, leading Agile teams, and delivering impactful solutions. 
-        Skilled in data management, risk mitigation, and enhancing user engagement through innovative 
-        product solutions. Extensive experience in platform services, project planning, budgeting, 
-        milestone setting, and communication management across global teams. Focused on delivering 
-        high-impact solutions with a customer-first approach in emerging markets.</p>
-    </section>
+    <main class="container"> <!-- Contenedor principal -->
+        <section id="professional-summary"> <!-- Sección de resumen profesional -->
+            <h2>PROFESSIONAL SUMMARY</h2> <!-- Título de la sección -->
+            <p>With over <strong>18</strong> years of experience managing projects across diverse industries including Government, Logistics, Retail, Manufacturing, and Health Care Services, I am dedicated to connecting and leading both technical and non-technical teams to deliver 
+                   optimal solutions tailored to organizational needs. My expertise spans Agile methodologies, strategic planning, and cross-functional team leadership, with a proven track record in driving technological advancements and operational efficiencies.</p> <!-- Contenido del resumen -->
+        </section>
 
-    <section class="skills scroll-section">
-        <h2>Core Skills</h2>
-        <ul>
-            <li>MES Implementation</li>
-            <li>Project & Portfolio Management</li>
-            <li>Change Management</li>
-            <li>Stakeholder Management & Communication</li>
-            <li>Risk Management & Security Compliance</li>
-            <li>Agile Methodologies: Scrum, SAFe, Kanban, Agile SDLC</li>
-            <li>Waterfall Methodology</li>
-            <li>Team Leadership & Collaboration</li>
-            <li>Cross-Functional Team Leadership</li>
-            <li>Fluent in English and Spanish</li>
-        </ul>
-    </section>
+        <section id="core-skills"> <!-- Sección de habilidades clave -->
+            <h2>CORE SKILLS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de habilidades -->
+                <li>MES Implementation & Support</li> <!-- Habilidad 1 -->
+                <li>Project Management</li> <!-- Habilidad 2 -->
+                <li>Lean Six Sigma (Green Belt)</li> <!-- Habilidad 3 -->
+                <li>Agile Methodologies</li> <!-- Habilidad 4 -->
+                <li>Digital Transformation</li> <!-- Habilidad 5 -->
+                <li>Strategic Planning</li> <!-- Habilidad 6 -->
+                <li>Cross-functional Team Leadership</li> <!-- Habilidad 7 -->
+            </ul>
+        </section>
 
-    <section class="achievements scroll-section">
-        <h2>Relevant Achievements</h2> <!-- Nuevas logros relevantes -->
-        <ul>
-            <li>Successfully led a multi-site MES Implementation project across three plants, reducing manual interventions by 15%.</li>
-            <li>Guided cross-functional teams through change management processes, increasing adoption rates by 20%.</li>
-            <li>Managed a portfolio of projects, including a critical ERP integration, achieving seamless rollouts and positive stakeholder feedback.</li>
-        </ul>
-    </section>
+        <section id="achievements"> <!-- Sección de logros relevantes -->
+            <h2>RELEVANT ACHIEVEMENTS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de logros -->
+                <li>Successfully led a cross-functional team in a digital transformation project, resulting in a 20% increase in operational efficiency.</li> <!-- Logro 1 -->
+                <li>Implemented a new project management framework that improved project delivery time by 30%.</li> <!-- Logro 2 -->
+                <li>Facilitated Agile training sessions for over 200 employees, fostering a culture of continuous improvement.</li> <!-- Logro 3 -->
+            </ul>
+        </section>
 
-    <section class="experience scroll-section">
-        <h2>Experience</h2>
-
-        <div class="job">
-            <h3 class="job-title">Product Owner<br>Baxter, CDMX, México</h3>
-            <p>October 2022 – June 2024</p>
-            <div id="job1Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Product & Integration Management: Spearheaded digital survey portal projects, enhancing customer engagement and aligning product strategy with customer needs.</li>
-                    <li>Data Optimization: Managed data cleaning, reducing costs by 10% and optimizing workflows for AP automation and platform services.</li>
-                    <li>Risk Management & Quality Assurance: Developed a Recovery Disaster Plan (RDP) and led security assessments to ensure compliance and system resilience.</li>
-                    <li>Vendor Management & Collaboration: Managed relationships with SaaS vendors, supporting commercial teams and integrating technology solutions to improve customer experience.</li>
-                    <li>Leadership & Delivery: Defined KPIs, led backlog management, and ensured seamless execution of platform-related projects.</li>
-                </ul>
+        <section id="experience"> <!-- Sección de experiencia profesional -->
+            <h2>PROFESSIONAL EXPERIENCE</h2> <!-- Título de la sección -->
+            <div class="job-title" onclick="toggleDetails('job1-details')">Product Manager - Company A (2015 - Present)</div> <!-- Título de trabajo 1 -->
+            <div class="job-details" id="job1-details"> <!-- Detalles del trabajo 1 -->
+                <p>Leading a team of product owners and developers to deliver digital products that meet customer needs.</p> <!-- Descripción del trabajo 1 -->
             </div>
-        </div>
-
-        <div class="job">
-            <h3 class="job-title">Project Manager/Scrum Master<br>Avattar Consulting, Monterrey, N.L., México</h3>
-            <p>September 2019 – June 2022</p>
-            <div id="job2Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Led MES and ITSM implementations, aligning with agile methodologies and driving key milestones.</li>
-                    <li>Platform Services Development: Led ITSM y automatización de proyectos que se alinearon con la hoja de ruta del producto, ofreciendo soluciones que mejoraron los resultados comerciales y la satisfacción del cliente.</li>
-                    <li>Portfolio & Process Management: Managed a portfolio of supply chain projects, executing strategic initiatives and achieving milestones on time.</li>
-                    <li>Backlog & Roadmap Prioritization: Prioritized product backlogs based on business impact and customer needs, delivering results aligned with company objectives.</li>
-                    <li>Agile Leadership: Promoted continuous improvement through Agile practices and led cross-functional teams in product execution.</li>
-                    <li>Infrastructure & Operations Oversight: Supervised upgrades to support digital transformation initiatives and platform enhancements.</li>
-                </ul>
+            <div class="job-title" onclick="toggleDetails('job2-details')">Project Manager - Company B (2012 - 2015)</div> <!-- Título de trabajo 2 -->
+            <div class="job-details" id="job2-details"> <!-- Detalles del trabajo 2 -->
+                <p>Managed multiple projects with budgets exceeding $1M, ensuring timely delivery and stakeholder satisfaction.</p> <!-- Descripción del trabajo 2 -->
             </div>
-        </div>
-
-        <div class="job">
-            <h3 class="job-title">Project Manager<br>DHL/Latbc Consulting, CDMX, México</h3>
-            <p>December 2017 – June 2019</p>
-            <div id="job3Details" class="job-details">
-                <ul class="experience-list">
-                    <li>HR Technology Transition: Directed the transition to new HR platforms, improving operational efficiency and ensuring seamless system integration.</li>
-                    <li>Project Portfolio Management: Managed a range of projects that aligned with company strategy, optimizing resources and improving platform stability.</li>
-                    <li>Drove change management efforts and facilitated collaboration between diverse global teams.</li>
-                    <li>Achieved a 10% cost reduction through effective risk mitigation and stakeholder communication.</li>
-                </ul>
+            <div class="job-title" onclick="toggleDetails('job3-details')">Project Coordinator - Company C (2008 - 2012)</div> <!-- Título de trabajo 3 -->
+            <div class="job-details" id="job3-details"> <!-- Detalles del trabajo 3 -->
+                <p>Supported project managers in coordinating project activities, schedules, and resources.</p> <!-- Descripción del trabajo 3 -->
             </div>
-        </div>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Project Manager<br>Soletanche Bachy, Paris, France</h3>
-            <p>September 2017 – November 2019</p>
-            <div id="job4Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Financial Systems Integration: Led the integration of financial systems, streamlining AP processes to enhance platform performance and compliance with global standards.</li>
-                    <li>Automation & Process Optimization: Implemented OCR soluciones y automatizó flujos de trabajo, mejorando la eficiencia operativa para servicios basados en plataformas.</li>
-                </ul>
-            </div>
-        </div>
+        <section id="education"> <!-- Sección de educación -->
+            <h2>EDUCATION</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de educación -->
+                <li>Master's Degree in Business Administration - University X (2010)</li> <!-- Educación 1 -->
+                <li>Bachelor's Degree in Computer Science - University Y (2008)</li> <!-- Educación 2 -->
+            </ul>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Scrum Master/Project Manager<br>SUNAT, Lima, Peru</h3>
-            <p>July 2016 – July 2017</p>
-            <div id="job5Details" class="job-details">
-                <ul class="experience-list">
-                    <li>Agile Product Development: Managed product backlogs and facilitated Scrum ceremonies to deliver key features for the financial services platform, ensuring compliance with regulatory requirements.</li>
-                    <li>Compliance & Process Integration: Ensured that platform-related features complied with Peruvian legislation, driving successful system integrations and market launches.</li>
-                </ul>
-            </div>
-        </div>
+        <section id="certifications"> <!-- Sección de certificaciones -->
+            <h2>CERTIFICATIONS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de certificaciones -->
+                <li>Certified ScrumMaster (CSM)</li> <!-- Certificación 1 -->
+                <li>Project Management Professional (PMP)</li> <!-- Certificación 2 -->
+                <li>Lean Six Sigma Green Belt</li> <!-- Certificación 3 -->
+            </ul>
+        </section>
 
-        <div class="job">
-            <h3 class="job-title">Consultant, Acting Manager, Project Manager, Functional & Technical Lead<br>Various Clients: Siemens, Deloitte, HP, etc., CDMX, México</h3>
-            <p>July 2015 – June 2016</p>
-            <div id="job6Details" class="job-details">
-                <ul class="experience-list">
-                    <li>ERP Systems Migration: Directed ERP migrations, ensuring platform integrity and uninterrupted business operations.</li>
-                </ul>
-            </div>
-        </div>
+        <section id="training"> <!-- Sección de formación -->
+            <h2>TRAINING</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de formación -->
+                <li>Agile Leadership Training</li> <!-- Formación 1 -->
+                <li>Advanced Project Management</li> <!-- Formación 2 -->
+            </ul>
+        </section>
 
-        <!-- Puedes agregar más trabajos aquí -->
-    </section>
+        <section id="technical-skills"> <!-- Sección de habilidades técnicas -->
+            <h2>TECHNICAL SKILLS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de habilidades técnicas -->
+                <li>JIRA, Confluence</li> <!-- Habilidad técnica 1 -->
+                <li>Microsoft Project, Trello</li> <!-- Habilidad técnica 2 -->
+                <li>SQL, Python</li> <!-- Habilidad técnica 3 -->
+                <li>Microsoft Office Suite</li> <!-- Habilidad técnica 4 -->
+            </ul>
+        </section>
 
-    <footer>
-        <p>&copy; 2024 Rafael Gallardo Santiago</p>
+        <section id="languages"> <!-- Sección de idiomas -->
+            <h2>LANGUAGES</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de idiomas -->
+                <li>English (Fluent)</li> <!-- Idioma 1 -->
+                <li>Spanish (Native)</li> <!-- Idioma 2 -->
+            </ul>
+        </section>
+    </main>
+
+    <footer> <!-- Pie de página -->
+        <p>&copy; 2024 Rafael Gallardo Santiago. All rights reserved.</p> <!-- Texto de derechos de autor -->
     </footer>
+
+    <script>
+        function toggleDetails(id) { // Función para alternar detalles
+            var details = document.getElementById(id); // Obtener detalles
+            if (details.style.display === "none" || details.style.display === "") { // Comprobar si está oculto
+                details.style.display = "block"; // Mostrar detalles
+            } else {
+                details.style.display = "none"; // Ocultar detalles
+            }
+        }
+    </script>
 </body>
 </html>
+
