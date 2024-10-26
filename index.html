@@ -1,152 +1,152 @@
-<!DOCTYPE html> <!-- Declaración del tipo de documento -->
-<html lang="en"> <!-- Inicio del documento HTML con lenguaje en inglés -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres como UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración de la vista para dispositivos móviles -->
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
     <meta name="description" content="Resume of Rafael Gallardo Santiago, experienced Product Manager specializing in digital project management."> <!-- Descripción del contenido -->
     <meta name="keywords" content="Resume, Product Manager, Project Management, Agile, Certifications"> <!-- Palabras clave para SEO -->
     <title>My Resume</title> <!-- Título de la página -->
     <link rel="stylesheet" href="style2.css"> <!-- Enlace a la hoja de estilos externa -->
     <style>
-        /* Estilos CSS para el documento */
         body {
-            font-family: 'Segoe UI', sans-serif; /* Fuente utilizada para el texto */
-            margin: 0; /* Margen del cuerpo en 0 */
-            padding: 0; /* Relleno del cuerpo en 0 */
-            line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
-            background-color: #ffffff; /* Color de fondo del cuerpo */
+            font-family: 'Segoe UI', sans-serif; /* Fuente principal */
+            margin: 0; /* Sin margen */
+            padding: 0; /* Sin relleno */
+            line-height: 1.6; /* Altura de línea */
+            background-color: #ffffff; /* Color de fondo */
             color: #333333; /* Color del texto */
         }
 
         .navbar {
-            display: flex; /* Utiliza flexbox para el diseño de la barra de navegación */
-            flex-direction: column; /* Dirección de los elementos en columna */
-            background: #000000; /* Color de fondo de la barra de navegación */
-            padding: 20px; /* Relleno de la barra de navegación */
-            position: fixed; /* Posición fija para que permanezca visible al desplazarse */
-            top: 0; /* Posición en la parte superior */
-            left: -220px; /* Fuera de la vista inicialmente */
-            width: 200px; /* Ancho de la barra de navegación */
-            height: 100%; /* Altura completa */
-            z-index: 999; /* Asegura que esté por encima de otros elementos */
-            transition: left 0.3s; /* Transición suave al mostrar/ocultar */
-            overflow-y: auto; /* Permitir scroll vertical */
-        }
-
-        .navbar.show {
-            left: 0; /* Mueve la barra a la vista */
+            display: flex; /* Usar flexbox para la disposición */
+            flex-direction: row; /* Dirección de la navbar en fila */
+            background: #000000; /* Color de fondo de la navbar */
+            padding: 10px; /* Relleno de la navbar */
+            position: fixed; /* Fija en la pantalla */
+            top: 0; /* Arriba de la pantalla */
+            left: 0; /* Posición inicial en la izquierda */
+            width: 100%; /* Ancho completo */
+            z-index: 999; /* Mantener por encima */
+            overflow-x: auto; /* Permitir scroll horizontal */
+            white-space: nowrap; /* Evitar el salto de línea */
         }
 
         .navbar a {
             color: #ffffff; /* Color de texto de los enlaces */
-            text-decoration: none; /* Sin subrayado en los enlaces */
-            padding: 15px; /* Relleno interno de los enlaces */
-            margin: 5px 0; /* Margen vertical entre los enlaces */
-            transition: background 0.3s, color 0.3s, font-weight 0.3s; /* Transiciones suaves para los cambios de estado */
-            border-radius: 5px; /* Bordes redondeados para los enlaces */
-            text-transform: uppercase; /* Convierte el texto a mayúsculas */
+            text-decoration: none; /* Sin subrayado */
+            padding: 15px; /* Relleno de los enlaces */
+            margin: 0 5px; /* Margen horizontal entre enlaces */
+            transition: background 0.3s, color 0.3s, font-weight 0.3s; /* Transición suave */
+            border-radius: 5px; /* Bordes redondeados */
+            text-transform: uppercase; /* Texto en mayúsculas */
         }
 
         .navbar a:hover, .navbar a:focus {
-            background: #ff6f20; /* Color de fondo al pasar el ratón */
-            color: #000000; /* Color de texto al pasar el ratón */
-            font-weight: bold; /* Texto en negrita al pasar el ratón */
+            background: #ff6f20; /* Color de fondo al pasar el mouse */
+            color: #000000; /* Color de texto al pasar el mouse */
+            font-weight: bold; /* Texto en negrita al pasar el mouse */
         }
 
         .navbar a.active {
-            background: #ff6f20; /* Color de fondo para el enlace activo */
-            color: #000000; /* Color de texto para el enlace activo */
-            font-weight: bold; /* Texto en negrita para el enlace activo */
+            background: #ff6f20; /* Color de fondo activo */
+            color: #000000; /* Color de texto activo */
+            font-weight: bold; /* Negrita para enlace activo */
         }
 
         .main-header {
-            padding: 80px 20px 20px; /* Relleno del encabezado principal */
-            text-align: center; /* Alineación del texto al centro */
-            position: relative; /* Posición relativa para superposición */
-            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            padding: 80px 20px 20px; /* Relleno del encabezado */
+            text-align: center; /* Centrar texto */
+            position: relative; /* Posición relativa */
+            z-index: 1000; /* Mantener por encima */
             background: #333333; /* Color de fondo del encabezado */
-            color: #ffffff; /* Color del texto del encabezado */
-            border-radius: 10px; /* Bordes redondeados para el encabezado */
-            margin-left: 220px; /* Margen izquierdo para el contenido */
-            margin-right: 20px; /* Margen derecho para el contenido */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el encabezado */
+            color: #ffffff; /* Color del texto */
+            border-radius: 10px; /* Bordes redondeados */
+            margin-top: 60px; /* Margen superior para evitar superposición con la navbar */
+            margin-left: 20px; /* Margen a la izquierda */
+            margin-right: 20px; /* Margen a la derecha */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
         }
 
         section {
-            max-width: 800px; /* Ancho máximo de las secciones */
-            margin: 20px auto; /* Margen automático para centrar */
-            padding: 20px; /* Relleno interno de las secciones */
-            background: #ffffff; /* Color de fondo de las secciones */
-            border-radius: 8px; /* Bordes redondeados para las secciones */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para las secciones */
-            border: 2px solid #ff6f20; /* Borde para las secciones */
-            transition: background 0.3s ease; /* Transición suave para el fondo */
+            max-width: 800px; /* Ancho máximo de la sección */
+            margin: 20px auto; /* Margen automático */
+            padding: 20px; /* Relleno de la sección */
+            background: #ffffff; /* Color de fondo de la sección */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+            border: 2px solid #ff6f20; /* Borde */
+            transition: background 0.3s ease; /* Transición de fondo */
         }
 
         section:hover {
-            background-color: #f2f2f2; /* Color de fondo al pasar el ratón */
+            background-color: #f2f2f2; /* Cambio de color al pasar el mouse */
         }
 
         h2 {
-            border-bottom: 2px solid #ff6f20; /* Borde inferior para el título */
-            padding-bottom: 10px; /* Relleno inferior para el título */
-            cursor: pointer; /* Cambia el cursor al pasar por encima */
-            text-transform: uppercase; /* Convierte el texto a mayúsculas */
+            border-bottom: 2px solid #ff6f20; /* Línea inferior */
+            padding-bottom: 10px; /* Relleno inferior */
+            cursor: pointer; /* Cambiar cursor */
+            text-transform: uppercase; /* Texto en mayúsculas */
         }
 
         .job-title {
-            cursor: pointer; /* Cambia el cursor al pasar por encima */
-            background: #e7e0d2; /* Color de fondo de los títulos de trabajos */
-            padding: 10px; /* Relleno interno de los títulos de trabajos */
-            border: 1px solid #ddd; /* Borde para los títulos de trabajos */
-            border-radius: 5px; /* Bordes redondeados para los títulos de trabajos */
-            margin: 10px 0; /* Margen vertical para los títulos de trabajos */
+            cursor: pointer; /* Cambiar cursor */
+            background: #e7e0d2; /* Color de fondo de título de trabajo */
+            padding: 10px; /* Relleno */
+            border: 1px solid #ddd; /* Borde */
+            border-radius: 5px; /* Bordes redondeados */
+            margin: 10px 0; /* Margen */
         }
 
         .job-details {
-            display: none; /* Ocultar detalles del trabajo por defecto */
-            padding: 10px; /* Relleno interno de los detalles del trabajo */
-            border-left: 3px solid #ff6f20; /* Borde izquierdo para los detalles */
-            margin-top: 5px; /* Margen superior para los detalles */
-            background: #f9f9f9; /* Color de fondo de los detalles */
+            display: none; /* Oculto por defecto */
+            padding: 10px; /* Relleno */
+            border-left: 3px solid #ff6f20; /* Borde izquierdo */
+            margin-top: 5px; /* Margen superior */
+            background: #f9f9f9; /* Color de fondo */
         }
 
         footer {
-            text-align: center; /* Alineación del texto al centro */
-            padding: 20px; /* Relleno interno del pie de página */
-            background: #000000; /* Color de fondo del pie de página */
-            color: #ffffff; /* Color del texto del pie de página */
-            position: relative; /* Posición relativa para superposición */
-            margin-top: 20px; /* Margen superior para separar del contenido */
+            text-align: center; /* Centrar texto en pie de página */
+            padding: 20px; /* Relleno */
+            background: #000000; /* Color de fondo */
+            color: #ffffff; /* Color de texto */
+            position: relative; /* Posición relativa */
+            margin-top: 20px; /* Margen superior */
         }
 
         @media (min-width: 768px) {
             .navbar {
-                left: 0; /* Muestra la barra de navegación en pantallas grandes */
+                flex-direction: column; /* Dirección de la navbar en columna en pantallas más grandes */
+                left: -220px; /* Oculto inicialmente */
+                transition: left 0.3s; /* Transición suave al mostrar/ocultar */
+            }
+            .navbar.show {
+                left: 0; /* Mostrar la navbar */
             }
             .main-header {
-                margin-left: 220px; /* Alinea el encabezado a la derecha de la barra de navegación */
+                margin-left: 220px; /* Margen a la izquierda para el encabezado */
             }
         }
 
         @media (max-width: 768px) {
             body {
-                font-size: 14px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+                font-size: 14px; /* Tamaño de fuente más pequeño en móvil */
             }
             .main-header {
-                margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
-                margin-right: 0; /* Elimina el margen derecho en pantallas pequeñas */
+                margin-left: 0; /* Sin margen a la izquierda */
+                margin-right: 0; /* Sin margen a la derecha */
             }
         }
 
         html {
-            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces */
+            scroll-behavior: smooth; /* Desplazamiento suave */
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar" aria-label="Main navigation"> <!-- Barra de navegación -->
+    <nav class="navbar" aria-label="Main navigation"> <!-- Barra de navegación principal -->
         <a href="#professional-summary">PROFESSIONAL SUMMARY</a> <!-- Enlace a resumen profesional -->
         <a href="#core-skills">CORE SKILLS</a> <!-- Enlace a habilidades clave -->
         <a href="#achievements">RELEVANT ACHIEVEMENTS</a> <!-- Enlace a logros relevantes -->
@@ -160,150 +160,116 @@
 
     <header class="main-header"> <!-- Encabezado principal -->
         <h1>RAFAEL GALLARDO SANTIAGO</h1> <!-- Nombre del candidato -->
-        <p>Experienced Product Manager with a strong background in digital project management, facilitator for agile transformation.</p> <!-- Breve descripción -->
+        <p>Experienced Product Manager with a strong background in digital project management., facilitator for agile transformation.</p> <!-- Descripción breve -->
     </header>
 
-    <main> <!-- Contenido principal -->
+    <main class="container"> <!-- Contenedor principal -->
         <section id="professional-summary"> <!-- Sección de resumen profesional -->
-            <h2>PROFESSIONAL SUMMARY</h2> <!-- Título de resumen profesional -->
-            <p>Results-driven Product Manager with over 10 years of experience leading digital transformation projects across various industries. Proven track record of driving operational improvements and delivering strategic initiatives.</p> <!-- Descripción del resumen profesional -->
+            <h2>PROFESSIONAL SUMMARY</h2> <!-- Título de la sección -->
+            <p>With over <strong>18</strong> years of experience managing projects across diverse industries including Government, Logistics, Retail, Manufacturing, and Health Care Services, I am dedicated to connecting and leading both technical and non-technical teams to deliver 
+                   optimal solutions tailored to organizational needs. My expertise spans Agile methodologies, strategic planning, and cross-functional team leadership, with a proven track record in driving technological advancements and operational efficiencies.</p> <!-- Contenido del resumen -->
         </section>
 
         <section id="core-skills"> <!-- Sección de habilidades clave -->
-            <h2>CORE SKILLS</h2> <!-- Título de habilidades clave -->
-            <ul>
-                <li>Agile Project Management</li> <!-- Habilidad clave 1 -->
-                <li>Digital Transformation</li> <!-- Habilidad clave 2 -->
-                <li>Stakeholder Engagement</li> <!-- Habilidad clave 3 -->
-                <li>Cross-functional Team Leadership</li> <!-- Habilidad clave 4 -->
-                <li>Data-driven Decision Making</li> <!-- Habilidad clave 5 -->
+            <h2>CORE SKILLS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de habilidades -->
+                <li>MES Implementation & ERP Systems Integration</li>
+                <li>Agile & Waterfall Project Management</li>
+                <li>Cross-Functional Team Leadership</li>
+                <li>Stakeholder Engagement</li>
+                <li>Continuous Improvement & Process Optimization</li>
+                <li>Data Analysis & Reporting</li>
             </ul>
         </section>
 
         <section id="achievements"> <!-- Sección de logros relevantes -->
-            <h2>RELEVANT ACHIEVEMENTS</h2> <!-- Título de logros relevantes -->
-            <ul>
-                <li>Successfully led a digital transformation initiative that resulted in a 30% increase in operational efficiency.</li> <!-- Logro 1 -->
-                <li>Implemented a project management framework that improved project delivery timelines by 25%.</li> <!-- Logro 2 -->
-                <li>Facilitated workshops that drove stakeholder engagement and collaboration across departments.</li> <!-- Logro 3 -->
+            <h2>RELEVANT ACHIEVEMENTS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de logros -->
+                <li>Improved project delivery time by <strong>30%</strong> through implementation of Agile practices.</li>
+                <li>Successfully led a cross-functional team to achieve a <strong>20%</strong> reduction in operational costs.</li>
+                <li>Implemented a new ERP system resulting in <strong>25%</strong> increase in data accuracy.</li>
             </ul>
         </section>
 
         <section id="experience"> <!-- Sección de experiencia profesional -->
-            <h2>PROFESSIONAL EXPERIENCE</h2> <!-- Título de experiencia profesional -->
+            <h2>PROFESSIONAL EXPERIENCE</h2> <!-- Título de la sección -->
 
-            <div class="job-title">Product Manager - XYZ Corp, México (October 2019 – Present)</div> <!-- Título del trabajo actual -->
-            <div class="job-details"> <!-- Detalles del trabajo actual -->
-                <ul>
-                    <li>Lead cross-functional teams to deliver digital projects on time and within budget.</li> <!-- Responsabilidad 1 -->
-                    <li>Develop and implement product strategies that align with business goals.</li> <!-- Responsabilidad 2 -->
-                    <li>Conduct market research to identify customer needs and competitive landscape.</li> <!-- Responsabilidad 3 -->
-                </ul>
+            <div class="job-title" onclick="toggleDetails(this)"> <!-- Título del trabajo -->
+                Product Manager - Digital Transformation, XYZ Corp. (2020 - Present) <!-- Detalles del trabajo -->
+            </div>
+            <div class="job-details"> <!-- Detalles del trabajo -->
+                <p>Oversee digital transformation projects, implementing Agile practices across teams to enhance collaboration and efficiency.</p>
             </div>
 
-            <div class="job-title">Senior Consultant - RSM, México (August 2017 – September 2019)</div> <!-- Título del trabajo anterior -->
-            <div class="job-details"> <!-- Detalles del trabajo anterior -->
-                <ul>
-                    <li>Facilitated client workshops to design digital transformation strategies for operational improvements.</li> <!-- Responsabilidad 1 -->
-                    <li>Developed and implemented change management initiatives that fostered adoption of new technologies.</li> <!-- Responsabilidad 2 -->
-                    <li>Delivered strategic insights and recommendations to improve client operations.</li> <!-- Responsabilidad 3 -->
-                </ul>
+            <div class="job-title" onclick="toggleDetails(this)"> <!-- Título del trabajo -->
+                Project Manager, ABC Inc. (2015 - 2020) <!-- Detalles del trabajo -->
+            </div>
+            <div class="job-details"> <!-- Detalles del trabajo -->
+                <p>Managed multiple projects in logistics, leading cross-functional teams to deliver innovative solutions.</p>
             </div>
 
-            <div class="job-title">Product Owner / Senior Project Manager - KIO Networks, México (March 2012 – August 2017)</div> <!-- Título del trabajo anterior -->
-            <div class="job-details"> <!-- Detalles del trabajo anterior -->
-                <ul>
-                    <li>Oversaw a portfolio of technology and consulting projects, ensuring timely delivery and stakeholder satisfaction.</li> <!-- Responsabilidad 1 -->
-                    <li>Designed and implemented project management methodologies that enhanced team performance and efficiency.</li> <!-- Responsabilidad 2 -->
-                </ul>
+            <div class="job-title" onclick="toggleDetails(this)"> <!-- Título del trabajo -->
+                Senior Business Analyst, DEF Ltd. (2010 - 2015) <!-- Detalles del trabajo -->
             </div>
-
-            <div class="job-title">Project Manager - Grupo Bimbo, México (June 2006 – February 2012)</div> <!-- Título del trabajo anterior -->
-            <div class="job-details"> <!-- Detalles del trabajo anterior -->
-                <ul>
-                    <li>Led projects focused on operational improvements and process optimization.</li> <!-- Responsabilidad 1 -->
-                    <li>Managed cross-functional teams to achieve project goals and deliver on time.</li> <!-- Responsabilidad 2 -->
-                </ul>
+            <div class="job-details"> <!-- Detalles del trabajo -->
+                <p>Analyzed business requirements and translated them into technical specifications for project implementation.</p>
             </div>
         </section>
 
         <section id="education"> <!-- Sección de educación -->
-            <h2>EDUCATION</h2> <!-- Título de educación -->
-            <ul>
-                <li><strong>Master of Business Administration (MBA)</strong>, Instituto Tecnológico Autónomo de México (ITAM), 2015.</li> <!-- Educación 1 -->
-                <li><strong>Bachelor of Science in Information Technology</strong>, Universidad de Guadalajara, 2005.</li> <!-- Educación 2 -->
-            </ul>
+            <h2>EDUCATION</h2> <!-- Título de la sección -->
+            <p>Bachelor's Degree in Business Administration, University of Example (2005 - 2009)</p> <!-- Detalles educativos -->
         </section>
 
         <section id="certifications"> <!-- Sección de certificaciones -->
-            <h2>CERTIFICATIONS</h2> <!-- Título de certificaciones -->
-            <ul>
-                <li>Certified ScrumMaster (CSM)</li> <!-- Certificación 1 -->
-                <li>Certified Agile Product Owner (CSPO)</li> <!-- Certificación 2 -->
-                <li>Project Management Professional (PMP)</li> <!-- Certificación 3 -->
-                <li>ITIL V4 Foundation Certification</li> <!-- Certificación 4 -->
+            <h2>CERTIFICATIONS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de certificaciones -->
+                <li>Certified Scrum Master (CSM)</li>
+                <li>Project Management Professional (PMP)</li>
             </ul>
         </section>
 
         <section id="training"> <!-- Sección de formación -->
-            <h2>TRAINING</h2> <!-- Título de formación -->
-            <ul>
-                <li>Agile Project Management</li> <!-- Formación 1 -->
-                <li>Digital Transformation Strategies</li> <!-- Formación 2 -->
-                <li>Advanced Leadership Skills</li> <!-- Formación 3 -->
+            <h2>TRAINING</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de formación -->
+                <li>Agile Leadership Training</li>
+                <li>Advanced Project Management Techniques</li>
             </ul>
         </section>
 
         <section id="technical-skills"> <!-- Sección de habilidades técnicas -->
-            <h2>TECHNICAL SKILLS</h2> <!-- Título de habilidades técnicas -->
-            <ul>
-                <li>Proficient in Microsoft Project, JIRA, Trello, and Asana.</li> <!-- Habilidad técnica 1 -->
-                <li>Experienced with ERP and MES systems.</li> <!-- Habilidad técnica 2 -->
-                <li>Basic knowledge of SQL and data analytics tools.</li> <!-- Habilidad técnica 3 -->
+            <h2>TECHNICAL SKILLS</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de habilidades técnicas -->
+                <li>Microsoft Project</li>
+                <li>JIRA</li>
+                <li>Confluence</li>
+                <li>SQL</li>
+                <li>Tableau</li>
             </ul>
         </section>
 
         <section id="languages"> <!-- Sección de idiomas -->
-            <h2>LANGUAGES</h2> <!-- Título de idiomas -->
-            <ul>
-                <li>Fluent in English and Spanish.</li> <!-- Idioma 1 -->
-                <li>Basic proficiency in French.</li> <!-- Idioma 2 -->
+            <h2>LANGUAGES</h2> <!-- Título de la sección -->
+            <ul> <!-- Lista de idiomas -->
+                <li>English (Fluent)</li>
+                <li>Spanish (Native)</li>
             </ul>
         </section>
     </main>
 
     <footer> <!-- Pie de página -->
-        <p>© 2024 Rafael Gallardo Santiago. All rights reserved.</p> <!-- Derechos de autor -->
+        <p>Contact: rafael@example.com | LinkedIn: linkedin.com/in/rafaelgallardo</p> <!-- Información de contacto -->
     </footer>
 
     <script>
-        // Obtener todos los títulos de trabajos
-        const jobTitles = document.querySelectorAll('.job-title'); // Seleccionar todos los elementos con clase 'job-title'
-
-        // Función para cerrar todos los detalles de trabajo
-        function closeAllJobDetails() { // Declarar la función para cerrar detalles
-            const allJobDetails = document.querySelectorAll('.job-details'); // Seleccionar todos los elementos con clase 'job-details'
-            allJobDetails.forEach(detail => { // Recorrer cada detalle de trabajo
-                detail.style.display = 'none'; // Cerrar todos los detalles
-            });
+        function toggleDetails(element) { // Función para alternar detalles del trabajo
+            const details = element.nextElementSibling; // Obtener el siguiente elemento hermano
+            if (details.style.display === "block") { // Comprobar si está visible
+                details.style.display = "none"; // Ocultar
+            } else {
+                details.style.display = "block"; // Mostrar
+            }
         }
-
-        // Agregar un event listener a cada título de trabajo
-        jobTitles.forEach(title => { // Recorrer cada título de trabajo
-            title.addEventListener('click', (event) => { // Agregar evento click a cada título
-                event.stopPropagation(); // Prevenir que se cierre al hacer clic en el título
-                
-                // Cerrar todos los detalles de trabajo
-                closeAllJobDetails(); // Llamar a la función para cerrar todos los detalles
-
-                // Abrir el detalle del trabajo correspondiente
-                const jobDetails = title.nextElementSibling; // Obtener el siguiente elemento (detalles del trabajo)
-                jobDetails.style.display = jobDetails.style.display === 'block' ? 'none' : 'block'; // Alternar entre abrir y cerrar
-            });
-        });
-
-        // Cerrar todos los detalles al hacer clic en cualquier parte de la página
-        document.body.addEventListener('click', closeAllJobDetails); // Agregar evento click al cuerpo del documento
     </script>
 </body>
 </html>
